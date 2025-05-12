@@ -1,0 +1,2152 @@
+
+    <!DOCTYPE html>
+    <html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Test Results</title>
+        <link href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.23.0/themes/prism-okaidia.min.css" rel="stylesheet" />
+        <style>
+            body {
+                font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+                margin: 20px;
+            }
+            table {
+                border-collapse: collapse;
+                width: 100%;
+                box-shadow: 0 2px 3px rgba(0,0,0,0.1);
+            }
+            th, td {
+                border: 1px solid #ddd;
+                text-align: left;
+                padding: 8px;
+            }
+            th {
+                background-color: #f2f2f2;
+            }
+            tr:nth-child(even) {
+                background-color: #f9f9f9;
+            }
+            .status-pass {
+                color: green;
+            }
+            .status-fail {
+                color: red;
+            }
+            pre {
+                background-color: #282c34 !important;
+                color: #ffffff !important;
+                padding: 10px;
+                border-radius: 5px;
+                overflow-x: auto;
+                white-space: pre-wrap;
+                font-family: 'Courier New', Courier, monospace;
+                font-size: 1.1em;  /* Slightly larger font size */
+            }
+        </style>
+    </head>
+    <body>
+        <table>
+            <tr>
+                <th>Status</th>
+                <th>Reason</th>
+                <th>Exit Code</th>
+                <th>Language</th>
+                <th>Modified Test File</th>
+                <th>Details</th>
+            </tr>
+            
+            <tr>
+                <td class="status-PASS">PASS</td>
+                <td></td>
+                <td>0</td>
+                <td>python</td>
+                <td>
+                    <details>
+                        <summary>View Full Code</summary>
+                        <pre><code><span class="diff-unchanged">  import pytest</span>
+<span class="diff-unchanged">  from calc import add, subtract</span>
+<span class="diff-added">+ from calc import divide</span>
+<span class="diff-unchanged">  </span>
+<span class="diff-unchanged">  def test_add():</span>
+<span class="diff-unchanged">      assert add(2, 3) == 5</span>
+<span class="diff-unchanged">      assert add(-1, 1) == 0</span>
+<span class="diff-unchanged">  </span>
+<span class="diff-unchanged">  def test_subtract():</span>
+<span class="diff-unchanged">      assert subtract(5, 3) == 2</span>
+<span class="diff-unchanged">      assert subtract(3, 5) == -2</span>
+<span class="diff-added">+ </span>
+<span class="diff-added">+ def test_divide_by_zero():</span>
+<span class="diff-added">+     assert divide(10, 0) == "Error: Division by zero is not allowed"</span>
+<span class="diff-added">+ </span></code></pre>
+                    </details>
+                </td>
+                <td>
+                    <details>
+                        <summary>View More</summary>
+                        <div><strong>STDERR:</strong> <pre><code class="language-python"></code></pre></div>
+                        <div><strong>STDOUT:</strong> <pre><code class="language-python">============================= test session starts ==============================
+platform darwin -- Python 3.12.7, pytest-8.3.5, pluggy-1.5.0
+rootdir: /Users/taeilseok/qodo/calculator
+plugins: anyio-4.9.0, cov-6.1.1
+collected 3 items
+
+test_calc.py ...                                                         [100%]
+
+================================ tests coverage ================================
+_______________ coverage: platform darwin, python 3.12.7-final-0 _______________
+
+Name           Stmts   Miss  Cover
+----------------------------------
+calc.py           88     72    18%
+test_calc.py      11      0   100%
+----------------------------------
+TOTAL             99     72    27%
+Coverage XML written to file coverage.xml
+============================== 3 passed in 0.03s ===============================
+</code></pre></div>
+                        <div><strong>Test Code:</strong> <pre><code class="language-python">def test_divide_by_zero():
+    assert divide(10, 0) == "Error: Division by zero is not allowed"
+</code></pre></div>
+                        <div><strong>Imports:</strong> <pre><code class="language-python">from calc import divide
+</code></pre></div>
+                    </details>
+                </td>
+            </tr>
+            
+            <tr>
+                <td class="status-PASS">PASS</td>
+                <td></td>
+                <td>0</td>
+                <td>python</td>
+                <td>
+                    <details>
+                        <summary>View Full Code</summary>
+                        <pre><code><span class="diff-unchanged">  import pytest</span>
+<span class="diff-unchanged">  from calc import add, subtract</span>
+<span class="diff-added">+ from calc import power</span>
+<span class="diff-unchanged">  from calc import divide</span>
+<span class="diff-unchanged">  </span>
+<span class="diff-unchanged">  def test_add():</span>
+<span class="diff-unchanged">      assert add(2, 3) == 5</span>
+<span class="diff-unchanged">      assert add(-1, 1) == 0</span>
+<span class="diff-unchanged">  </span>
+<span class="diff-unchanged">  def test_subtract():</span>
+<span class="diff-unchanged">      assert subtract(5, 3) == 2</span>
+<span class="diff-unchanged">      assert subtract(3, 5) == -2</span>
+<span class="diff-unchanged">  </span>
+<span class="diff-added">+ def test_power():</span>
+<span class="diff-added">+     assert power(2, 3) == 8</span>
+<span class="diff-added">+     assert power(5, 0) == 1</span>
+<span class="diff-added">+ </span>
+<span class="diff-added">+ </span>
+<span class="diff-unchanged">  def test_divide_by_zero():</span>
+<span class="diff-unchanged">      assert divide(10, 0) == "Error: Division by zero is not allowed"</span>
+<span class="diff-unchanged">  </span></code></pre>
+                    </details>
+                </td>
+                <td>
+                    <details>
+                        <summary>View More</summary>
+                        <div><strong>STDERR:</strong> <pre><code class="language-python"></code></pre></div>
+                        <div><strong>STDOUT:</strong> <pre><code class="language-python">============================= test session starts ==============================
+platform darwin -- Python 3.12.7, pytest-8.3.5, pluggy-1.5.0
+rootdir: /Users/taeilseok/qodo/calculator
+plugins: anyio-4.9.0, cov-6.1.1
+collected 4 items
+
+test_calc.py ....                                                        [100%]
+
+================================ tests coverage ================================
+_______________ coverage: platform darwin, python 3.12.7-final-0 _______________
+
+Name           Stmts   Miss  Cover
+----------------------------------
+calc.py           88     71    19%
+test_calc.py      15      0   100%
+----------------------------------
+TOTAL            103     71    31%
+Coverage XML written to file coverage.xml
+============================== 4 passed in 0.03s ===============================
+</code></pre></div>
+                        <div><strong>Test Code:</strong> <pre><code class="language-python">def test_power():
+    assert power(2, 3) == 8
+    assert power(5, 0) == 1
+</code></pre></div>
+                        <div><strong>Imports:</strong> <pre><code class="language-python">from calc import power
+</code></pre></div>
+                    </details>
+                </td>
+            </tr>
+            
+            <tr>
+                <td class="status-PASS">PASS</td>
+                <td></td>
+                <td>0</td>
+                <td>python</td>
+                <td>
+                    <details>
+                        <summary>View Full Code</summary>
+                        <pre><code><span class="diff-unchanged">  import pytest</span>
+<span class="diff-unchanged">  from calc import add, subtract</span>
+<span class="diff-added">+ from calc import sqrt</span>
+<span class="diff-unchanged">  from calc import power</span>
+<span class="diff-unchanged">  from calc import divide</span>
+<span class="diff-unchanged">  </span>
+<span class="diff-unchanged">  def test_add():</span>
+<span class="diff-unchanged">      assert add(2, 3) == 5</span>
+<span class="diff-unchanged">      assert add(-1, 1) == 0</span>
+<span class="diff-unchanged">  </span>
+<span class="diff-unchanged">  def test_subtract():</span>
+<span class="diff-unchanged">      assert subtract(5, 3) == 2</span>
+<span class="diff-unchanged">      assert subtract(3, 5) == -2</span>
+<span class="diff-unchanged">  </span>
+<span class="diff-added">+ def test_sqrt_negative():</span>
+<span class="diff-added">+     assert sqrt(-4) == "Error: Square root of negative number is not allowed"</span>
+<span class="diff-added">+ </span>
+<span class="diff-added">+ </span>
+<span class="diff-unchanged">  def test_power():</span>
+<span class="diff-unchanged">      assert power(2, 3) == 8</span>
+<span class="diff-unchanged">      assert power(5, 0) == 1</span>
+<span class="diff-unchanged">  </span>
+<span class="diff-unchanged">  </span>
+<span class="diff-unchanged">  def test_divide_by_zero():</span>
+<span class="diff-unchanged">      assert divide(10, 0) == "Error: Division by zero is not allowed"</span>
+<span class="diff-unchanged">  </span></code></pre>
+                    </details>
+                </td>
+                <td>
+                    <details>
+                        <summary>View More</summary>
+                        <div><strong>STDERR:</strong> <pre><code class="language-python"></code></pre></div>
+                        <div><strong>STDOUT:</strong> <pre><code class="language-python">============================= test session starts ==============================
+platform darwin -- Python 3.12.7, pytest-8.3.5, pluggy-1.5.0
+rootdir: /Users/taeilseok/qodo/calculator
+plugins: anyio-4.9.0, cov-6.1.1
+collected 5 items
+
+test_calc.py .....                                                       [100%]
+
+================================ tests coverage ================================
+_______________ coverage: platform darwin, python 3.12.7-final-0 _______________
+
+Name           Stmts   Miss  Cover
+----------------------------------
+calc.py           88     69    22%
+test_calc.py      18      0   100%
+----------------------------------
+TOTAL            106     69    35%
+Coverage XML written to file coverage.xml
+============================== 5 passed in 0.03s ===============================
+</code></pre></div>
+                        <div><strong>Test Code:</strong> <pre><code class="language-python">def test_sqrt_negative():
+    assert sqrt(-4) == "Error: Square root of negative number is not allowed"
+</code></pre></div>
+                        <div><strong>Imports:</strong> <pre><code class="language-python">from calc import sqrt
+</code></pre></div>
+                    </details>
+                </td>
+            </tr>
+            
+            <tr>
+                <td class="status-PASS">PASS</td>
+                <td></td>
+                <td>0</td>
+                <td>python</td>
+                <td>
+                    <details>
+                        <summary>View Full Code</summary>
+                        <pre><code><span class="diff-unchanged">  import pytest</span>
+<span class="diff-unchanged">  from calc import add, subtract</span>
+<span class="diff-added">+ from calc import log</span>
+<span class="diff-unchanged">  from calc import sqrt</span>
+<span class="diff-unchanged">  from calc import power</span>
+<span class="diff-unchanged">  from calc import divide</span>
+<span class="diff-unchanged">  </span>
+<span class="diff-unchanged">  def test_add():</span>
+<span class="diff-unchanged">      assert add(2, 3) == 5</span>
+<span class="diff-unchanged">      assert add(-1, 1) == 0</span>
+<span class="diff-unchanged">  </span>
+<span class="diff-unchanged">  def test_subtract():</span>
+<span class="diff-unchanged">      assert subtract(5, 3) == 2</span>
+<span class="diff-unchanged">      assert subtract(3, 5) == -2</span>
+<span class="diff-added">+ </span>
+<span class="diff-added">+ def test_log_non_positive():</span>
+<span class="diff-added">+     assert log(0) == "Error: Logarithm of non-positive number is not allowed"</span>
+<span class="diff-added">+     assert log(-1) == "Error: Logarithm of non-positive number is not allowed"</span>
+<span class="diff-added">+ </span>
+<span class="diff-unchanged">  </span>
+<span class="diff-unchanged">  def test_sqrt_negative():</span>
+<span class="diff-unchanged">      assert sqrt(-4) == "Error: Square root of negative number is not allowed"</span>
+<span class="diff-unchanged">  </span>
+<span class="diff-unchanged">  </span>
+<span class="diff-unchanged">  def test_power():</span>
+<span class="diff-unchanged">      assert power(2, 3) == 8</span>
+<span class="diff-unchanged">      assert power(5, 0) == 1</span>
+<span class="diff-unchanged">  </span>
+<span class="diff-unchanged">  </span>
+<span class="diff-unchanged">  def test_divide_by_zero():</span>
+<span class="diff-unchanged">      assert divide(10, 0) == "Error: Division by zero is not allowed"</span>
+<span class="diff-unchanged">  </span></code></pre>
+                    </details>
+                </td>
+                <td>
+                    <details>
+                        <summary>View More</summary>
+                        <div><strong>STDERR:</strong> <pre><code class="language-python"></code></pre></div>
+                        <div><strong>STDOUT:</strong> <pre><code class="language-python">============================= test session starts ==============================
+platform darwin -- Python 3.12.7, pytest-8.3.5, pluggy-1.5.0
+rootdir: /Users/taeilseok/qodo/calculator
+plugins: anyio-4.9.0, cov-6.1.1
+collected 6 items
+
+test_calc.py ......                                                      [100%]
+
+================================ tests coverage ================================
+_______________ coverage: platform darwin, python 3.12.7-final-0 _______________
+
+Name           Stmts   Miss  Cover
+----------------------------------
+calc.py           88     67    24%
+test_calc.py      22      0   100%
+----------------------------------
+TOTAL            110     67    39%
+Coverage XML written to file coverage.xml
+============================== 6 passed in 0.04s ===============================
+</code></pre></div>
+                        <div><strong>Test Code:</strong> <pre><code class="language-python">def test_log_non_positive():
+    assert log(0) == "Error: Logarithm of non-positive number is not allowed"
+    assert log(-1) == "Error: Logarithm of non-positive number is not allowed"
+</code></pre></div>
+                        <div><strong>Imports:</strong> <pre><code class="language-python">from calc import log
+</code></pre></div>
+                    </details>
+                </td>
+            </tr>
+            
+            <tr>
+                <td class="status-PASS">PASS</td>
+                <td></td>
+                <td>0</td>
+                <td>python</td>
+                <td>
+                    <details>
+                        <summary>View Full Code</summary>
+                        <pre><code><span class="diff-unchanged">  import pytest</span>
+<span class="diff-unchanged">  from calc import add, subtract</span>
+<span class="diff-unchanged">  from calc import log</span>
+<span class="diff-unchanged">  from calc import sqrt</span>
+<span class="diff-unchanged">  from calc import power</span>
+<span class="diff-unchanged">  from calc import divide</span>
+<span class="diff-unchanged">  </span>
+<span class="diff-unchanged">  def test_add():</span>
+<span class="diff-unchanged">      assert add(2, 3) == 5</span>
+<span class="diff-unchanged">      assert add(-1, 1) == 0</span>
+<span class="diff-unchanged">  </span>
+<span class="diff-unchanged">  def test_subtract():</span>
+<span class="diff-unchanged">      assert subtract(5, 3) == 2</span>
+<span class="diff-unchanged">      assert subtract(3, 5) == -2</span>
+<span class="diff-added">+ </span>
+<span class="diff-added">+ def test_divide_by_zero():</span>
+<span class="diff-added">+     assert divide(10, 0) == "Error: Division by zero is not allowed"</span>
+<span class="diff-added">+ </span>
+<span class="diff-unchanged">  </span>
+<span class="diff-unchanged">  def test_log_non_positive():</span>
+<span class="diff-unchanged">      assert log(0) == "Error: Logarithm of non-positive number is not allowed"</span>
+<span class="diff-unchanged">      assert log(-1) == "Error: Logarithm of non-positive number is not allowed"</span>
+<span class="diff-unchanged">  </span>
+<span class="diff-unchanged">  </span>
+<span class="diff-unchanged">  def test_sqrt_negative():</span>
+<span class="diff-unchanged">      assert sqrt(-4) == "Error: Square root of negative number is not allowed"</span>
+<span class="diff-unchanged">  </span>
+<span class="diff-unchanged">  </span>
+<span class="diff-unchanged">  def test_power():</span>
+<span class="diff-unchanged">      assert power(2, 3) == 8</span>
+<span class="diff-unchanged">      assert power(5, 0) == 1</span>
+<span class="diff-unchanged">  </span>
+<span class="diff-unchanged">  </span>
+<span class="diff-unchanged">  def test_divide_by_zero():</span>
+<span class="diff-unchanged">      assert divide(10, 0) == "Error: Division by zero is not allowed"</span>
+<span class="diff-unchanged">  </span></code></pre>
+                    </details>
+                </td>
+                <td>
+                    <details>
+                        <summary>View More</summary>
+                        <div><strong>STDERR:</strong> <pre><code class="language-python"></code></pre></div>
+                        <div><strong>STDOUT:</strong> <pre><code class="language-python">============================= test session starts ==============================
+platform darwin -- Python 3.12.7, pytest-8.3.5, pluggy-1.5.0
+rootdir: /Users/taeilseok/qodo/calculator
+plugins: anyio-4.9.0, cov-6.1.1
+collected 6 items
+
+test_calc.py ......                                                      [100%]
+
+================================ tests coverage ================================
+_______________ coverage: platform darwin, python 3.12.7-final-0 _______________
+
+Name           Stmts   Miss  Cover
+----------------------------------
+calc.py           88     67    24%
+test_calc.py      24      1    96%
+----------------------------------
+TOTAL            112     68    39%
+Coverage XML written to file coverage.xml
+============================== 6 passed in 0.04s ===============================
+</code></pre></div>
+                        <div><strong>Test Code:</strong> <pre><code class="language-python">def test_divide_by_zero():
+    assert divide(10, 0) == "Error: Division by zero is not allowed"
+</code></pre></div>
+                        <div><strong>Imports:</strong> <pre><code class="language-python">from calc import divide
+</code></pre></div>
+                    </details>
+                </td>
+            </tr>
+            
+            <tr>
+                <td class="status-PASS">PASS</td>
+                <td></td>
+                <td>0</td>
+                <td>python</td>
+                <td>
+                    <details>
+                        <summary>View Full Code</summary>
+                        <pre><code><span class="diff-unchanged">  import pytest</span>
+<span class="diff-unchanged">  from calc import add, subtract</span>
+<span class="diff-unchanged">  from calc import log</span>
+<span class="diff-unchanged">  from calc import sqrt</span>
+<span class="diff-unchanged">  from calc import power</span>
+<span class="diff-unchanged">  from calc import divide</span>
+<span class="diff-unchanged">  </span>
+<span class="diff-unchanged">  def test_add():</span>
+<span class="diff-unchanged">      assert add(2, 3) == 5</span>
+<span class="diff-unchanged">      assert add(-1, 1) == 0</span>
+<span class="diff-unchanged">  </span>
+<span class="diff-unchanged">  def test_subtract():</span>
+<span class="diff-unchanged">      assert subtract(5, 3) == 2</span>
+<span class="diff-unchanged">      assert subtract(3, 5) == -2</span>
+<span class="diff-added">+ </span>
+<span class="diff-added">+ def test_power_negative_exponent():</span>
+<span class="diff-added">+     assert power(2, -3) == 0.125</span>
+<span class="diff-added">+ </span>
+<span class="diff-unchanged">  </span>
+<span class="diff-unchanged">  def test_divide_by_zero():</span>
+<span class="diff-unchanged">      assert divide(10, 0) == "Error: Division by zero is not allowed"</span>
+<span class="diff-unchanged">  </span>
+<span class="diff-unchanged">  </span>
+<span class="diff-unchanged">  def test_log_non_positive():</span>
+<span class="diff-unchanged">      assert log(0) == "Error: Logarithm of non-positive number is not allowed"</span>
+<span class="diff-unchanged">      assert log(-1) == "Error: Logarithm of non-positive number is not allowed"</span>
+<span class="diff-unchanged">  </span>
+<span class="diff-unchanged">  </span>
+<span class="diff-unchanged">  def test_sqrt_negative():</span>
+<span class="diff-unchanged">      assert sqrt(-4) == "Error: Square root of negative number is not allowed"</span>
+<span class="diff-unchanged">  </span>
+<span class="diff-unchanged">  </span>
+<span class="diff-unchanged">  def test_power():</span>
+<span class="diff-unchanged">      assert power(2, 3) == 8</span>
+<span class="diff-unchanged">      assert power(5, 0) == 1</span>
+<span class="diff-unchanged">  </span>
+<span class="diff-unchanged">  </span>
+<span class="diff-unchanged">  def test_divide_by_zero():</span>
+<span class="diff-unchanged">      assert divide(10, 0) == "Error: Division by zero is not allowed"</span>
+<span class="diff-unchanged">  </span></code></pre>
+                    </details>
+                </td>
+                <td>
+                    <details>
+                        <summary>View More</summary>
+                        <div><strong>STDERR:</strong> <pre><code class="language-python"></code></pre></div>
+                        <div><strong>STDOUT:</strong> <pre><code class="language-python">============================= test session starts ==============================
+platform darwin -- Python 3.12.7, pytest-8.3.5, pluggy-1.5.0
+rootdir: /Users/taeilseok/qodo/calculator
+plugins: anyio-4.9.0, cov-6.1.1
+collected 7 items
+
+test_calc.py .......                                                     [100%]
+
+================================ tests coverage ================================
+_______________ coverage: platform darwin, python 3.12.7-final-0 _______________
+
+Name           Stmts   Miss  Cover
+----------------------------------
+calc.py           88     67    24%
+test_calc.py      26      1    96%
+----------------------------------
+TOTAL            114     68    40%
+Coverage XML written to file coverage.xml
+============================== 7 passed in 0.04s ===============================
+</code></pre></div>
+                        <div><strong>Test Code:</strong> <pre><code class="language-python">def test_power_negative_exponent():
+    assert power(2, -3) == 0.125
+</code></pre></div>
+                        <div><strong>Imports:</strong> <pre><code class="language-python">from calc import power
+</code></pre></div>
+                    </details>
+                </td>
+            </tr>
+            
+            <tr>
+                <td class="status-FAIL">FAIL</td>
+                <td>Coverage did not increase. Maybe the test did run but did not increase coverage, or maybe the test execution was skipped due to some problem</td>
+                <td>0</td>
+                <td>python</td>
+                <td>
+                    <details>
+                        <summary>View Full Code</summary>
+                        <pre><code><span class="diff-unchanged">  import pytest</span>
+<span class="diff-unchanged">  from calc import add, subtract</span>
+<span class="diff-unchanged">  from calc import log</span>
+<span class="diff-unchanged">  from calc import sqrt</span>
+<span class="diff-unchanged">  from calc import power</span>
+<span class="diff-unchanged">  from calc import divide</span>
+<span class="diff-unchanged">  </span>
+<span class="diff-unchanged">  def test_add():</span>
+<span class="diff-unchanged">      assert add(2, 3) == 5</span>
+<span class="diff-unchanged">      assert add(-1, 1) == 0</span>
+<span class="diff-unchanged">  </span>
+<span class="diff-unchanged">  def test_subtract():</span>
+<span class="diff-unchanged">      assert subtract(5, 3) == 2</span>
+<span class="diff-unchanged">      assert subtract(3, 5) == -2</span>
+<span class="diff-added">+ </span>
+<span class="diff-added">+ def test_sqrt_negative_number():</span>
+<span class="diff-added">+     assert sqrt(-4) == "Error: Square root of negative number is not allowed"</span>
+<span class="diff-added">+ </span>
+<span class="diff-unchanged">  </span>
+<span class="diff-unchanged">  def test_power_negative_exponent():</span>
+<span class="diff-unchanged">      assert power(2, -3) == 0.125</span>
+<span class="diff-unchanged">  </span>
+<span class="diff-unchanged">  </span>
+<span class="diff-unchanged">  def test_divide_by_zero():</span>
+<span class="diff-unchanged">      assert divide(10, 0) == "Error: Division by zero is not allowed"</span>
+<span class="diff-unchanged">  </span>
+<span class="diff-unchanged">  </span>
+<span class="diff-unchanged">  def test_log_non_positive():</span>
+<span class="diff-unchanged">      assert log(0) == "Error: Logarithm of non-positive number is not allowed"</span>
+<span class="diff-unchanged">      assert log(-1) == "Error: Logarithm of non-positive number is not allowed"</span>
+<span class="diff-unchanged">  </span>
+<span class="diff-unchanged">  </span>
+<span class="diff-unchanged">  def test_sqrt_negative():</span>
+<span class="diff-unchanged">      assert sqrt(-4) == "Error: Square root of negative number is not allowed"</span>
+<span class="diff-unchanged">  </span>
+<span class="diff-unchanged">  </span>
+<span class="diff-unchanged">  def test_power():</span>
+<span class="diff-unchanged">      assert power(2, 3) == 8</span>
+<span class="diff-unchanged">      assert power(5, 0) == 1</span>
+<span class="diff-unchanged">  </span>
+<span class="diff-unchanged">  </span>
+<span class="diff-unchanged">  def test_divide_by_zero():</span>
+<span class="diff-unchanged">      assert divide(10, 0) == "Error: Division by zero is not allowed"</span>
+<span class="diff-unchanged">  </span></code></pre>
+                    </details>
+                </td>
+                <td>
+                    <details>
+                        <summary>View More</summary>
+                        <div><strong>STDERR:</strong> <pre><code class="language-python"></code></pre></div>
+                        <div><strong>STDOUT:</strong> <pre><code class="language-python">============================= test session starts ==============================
+platform darwin -- Python 3.12.7, pytest-8.3.5, pluggy-1.5.0
+rootdir: /Users/taeilseok/qodo/calculator
+plugins: anyio-4.9.0, cov-6.1.1
+collected 8 items
+
+test_calc.py ........                                                    [100%]
+
+================================ tests coverage ================================
+_______________ coverage: platform darwin, python 3.12.7-final-0 _______________
+
+Name           Stmts   Miss  Cover
+----------------------------------
+calc.py           88     67    24%
+test_calc.py      28      1    96%
+----------------------------------
+TOTAL            116     68    41%
+Coverage XML written to file coverage.xml
+============================== 8 passed in 0.04s ===============================
+</code></pre></div>
+                        <div><strong>Test Code:</strong> <pre><code class="language-python">def test_sqrt_negative_number():
+    assert sqrt(-4) == "Error: Square root of negative number is not allowed"
+</code></pre></div>
+                        <div><strong>Imports:</strong> <pre><code class="language-python">from calc import sqrt
+</code></pre></div>
+                    </details>
+                </td>
+            </tr>
+            
+            <tr>
+                <td class="status-PASS">PASS</td>
+                <td></td>
+                <td>0</td>
+                <td>python</td>
+                <td>
+                    <details>
+                        <summary>View Full Code</summary>
+                        <pre><code><span class="diff-unchanged">  import pytest</span>
+<span class="diff-unchanged">  from calc import add, subtract</span>
+<span class="diff-unchanged">  from calc import log</span>
+<span class="diff-unchanged">  from calc import sqrt</span>
+<span class="diff-unchanged">  from calc import power</span>
+<span class="diff-unchanged">  from calc import divide</span>
+<span class="diff-unchanged">  </span>
+<span class="diff-unchanged">  def test_add():</span>
+<span class="diff-unchanged">      assert add(2, 3) == 5</span>
+<span class="diff-unchanged">      assert add(-1, 1) == 0</span>
+<span class="diff-unchanged">  </span>
+<span class="diff-unchanged">  def test_subtract():</span>
+<span class="diff-unchanged">      assert subtract(5, 3) == 2</span>
+<span class="diff-unchanged">      assert subtract(3, 5) == -2</span>
+<span class="diff-added">+ </span>
+<span class="diff-added">+ def test_log_non_positive_number():</span>
+<span class="diff-added">+     assert log(0) == "Error: Logarithm of non-positive number is not allowed"</span>
+<span class="diff-added">+     assert log(-1) == "Error: Logarithm of non-positive number is not allowed"</span>
+<span class="diff-added">+ </span>
+<span class="diff-unchanged">  </span>
+<span class="diff-unchanged">  def test_power_negative_exponent():</span>
+<span class="diff-unchanged">      assert power(2, -3) == 0.125</span>
+<span class="diff-unchanged">  </span>
+<span class="diff-unchanged">  </span>
+<span class="diff-unchanged">  def test_divide_by_zero():</span>
+<span class="diff-unchanged">      assert divide(10, 0) == "Error: Division by zero is not allowed"</span>
+<span class="diff-unchanged">  </span>
+<span class="diff-unchanged">  </span>
+<span class="diff-unchanged">  def test_log_non_positive():</span>
+<span class="diff-unchanged">      assert log(0) == "Error: Logarithm of non-positive number is not allowed"</span>
+<span class="diff-unchanged">      assert log(-1) == "Error: Logarithm of non-positive number is not allowed"</span>
+<span class="diff-unchanged">  </span>
+<span class="diff-unchanged">  </span>
+<span class="diff-unchanged">  def test_sqrt_negative():</span>
+<span class="diff-unchanged">      assert sqrt(-4) == "Error: Square root of negative number is not allowed"</span>
+<span class="diff-unchanged">  </span>
+<span class="diff-unchanged">  </span>
+<span class="diff-unchanged">  def test_power():</span>
+<span class="diff-unchanged">      assert power(2, 3) == 8</span>
+<span class="diff-unchanged">      assert power(5, 0) == 1</span>
+<span class="diff-unchanged">  </span>
+<span class="diff-unchanged">  </span>
+<span class="diff-unchanged">  def test_divide_by_zero():</span>
+<span class="diff-unchanged">      assert divide(10, 0) == "Error: Division by zero is not allowed"</span>
+<span class="diff-unchanged">  </span></code></pre>
+                    </details>
+                </td>
+                <td>
+                    <details>
+                        <summary>View More</summary>
+                        <div><strong>STDERR:</strong> <pre><code class="language-python"></code></pre></div>
+                        <div><strong>STDOUT:</strong> <pre><code class="language-python">============================= test session starts ==============================
+platform darwin -- Python 3.12.7, pytest-8.3.5, pluggy-1.5.0
+rootdir: /Users/taeilseok/qodo/calculator
+plugins: anyio-4.9.0, cov-6.1.1
+collected 8 items
+
+test_calc.py ........                                                    [100%]
+
+================================ tests coverage ================================
+_______________ coverage: platform darwin, python 3.12.7-final-0 _______________
+
+Name           Stmts   Miss  Cover
+----------------------------------
+calc.py           88     67    24%
+test_calc.py      29      1    97%
+----------------------------------
+TOTAL            117     68    42%
+Coverage XML written to file coverage.xml
+============================== 8 passed in 0.04s ===============================
+</code></pre></div>
+                        <div><strong>Test Code:</strong> <pre><code class="language-python">def test_log_non_positive_number():
+    assert log(0) == "Error: Logarithm of non-positive number is not allowed"
+    assert log(-1) == "Error: Logarithm of non-positive number is not allowed"
+</code></pre></div>
+                        <div><strong>Imports:</strong> <pre><code class="language-python">from calc import log
+</code></pre></div>
+                    </details>
+                </td>
+            </tr>
+            
+            <tr>
+                <td class="status-PASS">PASS</td>
+                <td></td>
+                <td>0</td>
+                <td>python</td>
+                <td>
+                    <details>
+                        <summary>View Full Code</summary>
+                        <pre><code><span class="diff-unchanged">  import pytest</span>
+<span class="diff-unchanged">  from calc import add, subtract</span>
+<span class="diff-added">+ from calc import multiply</span>
+<span class="diff-unchanged">  from calc import log</span>
+<span class="diff-unchanged">  from calc import sqrt</span>
+<span class="diff-unchanged">  from calc import power</span>
+<span class="diff-unchanged">  from calc import divide</span>
+<span class="diff-unchanged">  </span>
+<span class="diff-unchanged">  def test_add():</span>
+<span class="diff-unchanged">      assert add(2, 3) == 5</span>
+<span class="diff-unchanged">      assert add(-1, 1) == 0</span>
+<span class="diff-unchanged">  </span>
+<span class="diff-unchanged">  def test_subtract():</span>
+<span class="diff-unchanged">      assert subtract(5, 3) == 2</span>
+<span class="diff-unchanged">      assert subtract(3, 5) == -2</span>
+<span class="diff-added">+ </span>
+<span class="diff-added">+ def test_multiply_positive_numbers():</span>
+<span class="diff-added">+     assert multiply(3, 4) == 12</span>
+<span class="diff-added">+ </span>
+<span class="diff-unchanged">  </span>
+<span class="diff-unchanged">  def test_log_non_positive_number():</span>
+<span class="diff-unchanged">      assert log(0) == "Error: Logarithm of non-positive number is not allowed"</span>
+<span class="diff-unchanged">      assert log(-1) == "Error: Logarithm of non-positive number is not allowed"</span>
+<span class="diff-unchanged">  </span>
+<span class="diff-unchanged">  </span>
+<span class="diff-unchanged">  def test_power_negative_exponent():</span>
+<span class="diff-unchanged">      assert power(2, -3) == 0.125</span>
+<span class="diff-unchanged">  </span>
+<span class="diff-unchanged">  </span>
+<span class="diff-unchanged">  def test_divide_by_zero():</span>
+<span class="diff-unchanged">      assert divide(10, 0) == "Error: Division by zero is not allowed"</span>
+<span class="diff-unchanged">  </span>
+<span class="diff-unchanged">  </span>
+<span class="diff-unchanged">  def test_log_non_positive():</span>
+<span class="diff-unchanged">      assert log(0) == "Error: Logarithm of non-positive number is not allowed"</span>
+<span class="diff-unchanged">      assert log(-1) == "Error: Logarithm of non-positive number is not allowed"</span>
+<span class="diff-unchanged">  </span>
+<span class="diff-unchanged">  </span>
+<span class="diff-unchanged">  def test_sqrt_negative():</span>
+<span class="diff-unchanged">      assert sqrt(-4) == "Error: Square root of negative number is not allowed"</span>
+<span class="diff-unchanged">  </span>
+<span class="diff-unchanged">  </span>
+<span class="diff-unchanged">  def test_power():</span>
+<span class="diff-unchanged">      assert power(2, 3) == 8</span>
+<span class="diff-unchanged">      assert power(5, 0) == 1</span>
+<span class="diff-unchanged">  </span>
+<span class="diff-unchanged">  </span>
+<span class="diff-unchanged">  def test_divide_by_zero():</span>
+<span class="diff-unchanged">      assert divide(10, 0) == "Error: Division by zero is not allowed"</span>
+<span class="diff-unchanged">  </span></code></pre>
+                    </details>
+                </td>
+                <td>
+                    <details>
+                        <summary>View More</summary>
+                        <div><strong>STDERR:</strong> <pre><code class="language-python"></code></pre></div>
+                        <div><strong>STDOUT:</strong> <pre><code class="language-python">============================= test session starts ==============================
+platform darwin -- Python 3.12.7, pytest-8.3.5, pluggy-1.5.0
+rootdir: /Users/taeilseok/qodo/calculator
+plugins: anyio-4.9.0, cov-6.1.1
+collected 9 items
+
+test_calc.py .........                                                   [100%]
+
+================================ tests coverage ================================
+_______________ coverage: platform darwin, python 3.12.7-final-0 _______________
+
+Name           Stmts   Miss  Cover
+----------------------------------
+calc.py           88     66    25%
+test_calc.py      32      1    97%
+----------------------------------
+TOTAL            120     67    44%
+Coverage XML written to file coverage.xml
+============================== 9 passed in 0.04s ===============================
+</code></pre></div>
+                        <div><strong>Test Code:</strong> <pre><code class="language-python">def test_multiply_positive_numbers():
+    assert multiply(3, 4) == 12
+</code></pre></div>
+                        <div><strong>Imports:</strong> <pre><code class="language-python">from calc import multiply
+</code></pre></div>
+                    </details>
+                </td>
+            </tr>
+            
+            <tr>
+                <td class="status-PASS">PASS</td>
+                <td></td>
+                <td>0</td>
+                <td>python</td>
+                <td>
+                    <details>
+                        <summary>View Full Code</summary>
+                        <pre><code><span class="diff-unchanged">  import pytest</span>
+<span class="diff-unchanged">  from calc import add, subtract</span>
+<span class="diff-unchanged">  from calc import multiply</span>
+<span class="diff-unchanged">  from calc import log</span>
+<span class="diff-unchanged">  from calc import sqrt</span>
+<span class="diff-unchanged">  from calc import power</span>
+<span class="diff-unchanged">  from calc import divide</span>
+<span class="diff-unchanged">  </span>
+<span class="diff-unchanged">  def test_add():</span>
+<span class="diff-unchanged">      assert add(2, 3) == 5</span>
+<span class="diff-unchanged">      assert add(-1, 1) == 0</span>
+<span class="diff-unchanged">  </span>
+<span class="diff-unchanged">  def test_subtract():</span>
+<span class="diff-unchanged">      assert subtract(5, 3) == 2</span>
+<span class="diff-unchanged">      assert subtract(3, 5) == -2</span>
+<span class="diff-added">+ </span>
+<span class="diff-added">+ def test_divide_non_zero():</span>
+<span class="diff-added">+     assert divide(10, 2) == 5</span>
+<span class="diff-added">+ </span>
+<span class="diff-unchanged">  </span>
+<span class="diff-unchanged">  def test_multiply_positive_numbers():</span>
+<span class="diff-unchanged">      assert multiply(3, 4) == 12</span>
+<span class="diff-unchanged">  </span>
+<span class="diff-unchanged">  </span>
+<span class="diff-unchanged">  def test_log_non_positive_number():</span>
+<span class="diff-unchanged">      assert log(0) == "Error: Logarithm of non-positive number is not allowed"</span>
+<span class="diff-unchanged">      assert log(-1) == "Error: Logarithm of non-positive number is not allowed"</span>
+<span class="diff-unchanged">  </span>
+<span class="diff-unchanged">  </span>
+<span class="diff-unchanged">  def test_power_negative_exponent():</span>
+<span class="diff-unchanged">      assert power(2, -3) == 0.125</span>
+<span class="diff-unchanged">  </span>
+<span class="diff-unchanged">  </span>
+<span class="diff-unchanged">  def test_divide_by_zero():</span>
+<span class="diff-unchanged">      assert divide(10, 0) == "Error: Division by zero is not allowed"</span>
+<span class="diff-unchanged">  </span>
+<span class="diff-unchanged">  </span>
+<span class="diff-unchanged">  def test_log_non_positive():</span>
+<span class="diff-unchanged">      assert log(0) == "Error: Logarithm of non-positive number is not allowed"</span>
+<span class="diff-unchanged">      assert log(-1) == "Error: Logarithm of non-positive number is not allowed"</span>
+<span class="diff-unchanged">  </span>
+<span class="diff-unchanged">  </span>
+<span class="diff-unchanged">  def test_sqrt_negative():</span>
+<span class="diff-unchanged">      assert sqrt(-4) == "Error: Square root of negative number is not allowed"</span>
+<span class="diff-unchanged">  </span>
+<span class="diff-unchanged">  </span>
+<span class="diff-unchanged">  def test_power():</span>
+<span class="diff-unchanged">      assert power(2, 3) == 8</span>
+<span class="diff-unchanged">      assert power(5, 0) == 1</span>
+<span class="diff-unchanged">  </span>
+<span class="diff-unchanged">  </span>
+<span class="diff-unchanged">  def test_divide_by_zero():</span>
+<span class="diff-unchanged">      assert divide(10, 0) == "Error: Division by zero is not allowed"</span>
+<span class="diff-unchanged">  </span></code></pre>
+                    </details>
+                </td>
+                <td>
+                    <details>
+                        <summary>View More</summary>
+                        <div><strong>STDERR:</strong> <pre><code class="language-python"></code></pre></div>
+                        <div><strong>STDOUT:</strong> <pre><code class="language-python">============================= test session starts ==============================
+platform darwin -- Python 3.12.7, pytest-8.3.5, pluggy-1.5.0
+rootdir: /Users/taeilseok/qodo/calculator
+plugins: anyio-4.9.0, cov-6.1.1
+collected 10 items
+
+test_calc.py ..........                                                  [100%]
+
+================================ tests coverage ================================
+_______________ coverage: platform darwin, python 3.12.7-final-0 _______________
+
+Name           Stmts   Miss  Cover
+----------------------------------
+calc.py           88     65    26%
+test_calc.py      34      1    97%
+----------------------------------
+TOTAL            122     66    46%
+Coverage XML written to file coverage.xml
+============================== 10 passed in 0.05s ==============================
+</code></pre></div>
+                        <div><strong>Test Code:</strong> <pre><code class="language-python">def test_divide_non_zero():
+    assert divide(10, 2) == 5
+</code></pre></div>
+                        <div><strong>Imports:</strong> <pre><code class="language-python">from calc import divide
+</code></pre></div>
+                    </details>
+                </td>
+            </tr>
+            
+            <tr>
+                <td class="status-PASS">PASS</td>
+                <td></td>
+                <td>0</td>
+                <td>python</td>
+                <td>
+                    <details>
+                        <summary>View Full Code</summary>
+                        <pre><code><span class="diff-unchanged">  import pytest</span>
+<span class="diff-unchanged">  from calc import add, subtract</span>
+<span class="diff-unchanged">  from calc import multiply</span>
+<span class="diff-unchanged">  from calc import log</span>
+<span class="diff-unchanged">  from calc import sqrt</span>
+<span class="diff-unchanged">  from calc import power</span>
+<span class="diff-unchanged">  from calc import divide</span>
+<span class="diff-unchanged">  </span>
+<span class="diff-unchanged">  def test_add():</span>
+<span class="diff-unchanged">      assert add(2, 3) == 5</span>
+<span class="diff-unchanged">      assert add(-1, 1) == 0</span>
+<span class="diff-unchanged">  </span>
+<span class="diff-unchanged">  def test_subtract():</span>
+<span class="diff-unchanged">      assert subtract(5, 3) == 2</span>
+<span class="diff-unchanged">      assert subtract(3, 5) == -2</span>
+<span class="diff-added">+ </span>
+<span class="diff-added">+ def test_power_function():</span>
+<span class="diff-added">+     assert power(2, 3) == 8</span>
+<span class="diff-added">+ </span>
+<span class="diff-unchanged">  </span>
+<span class="diff-unchanged">  def test_divide_non_zero():</span>
+<span class="diff-unchanged">      assert divide(10, 2) == 5</span>
+<span class="diff-unchanged">  </span>
+<span class="diff-unchanged">  </span>
+<span class="diff-unchanged">  def test_multiply_positive_numbers():</span>
+<span class="diff-unchanged">      assert multiply(3, 4) == 12</span>
+<span class="diff-unchanged">  </span>
+<span class="diff-unchanged">  </span>
+<span class="diff-unchanged">  def test_log_non_positive_number():</span>
+<span class="diff-unchanged">      assert log(0) == "Error: Logarithm of non-positive number is not allowed"</span>
+<span class="diff-unchanged">      assert log(-1) == "Error: Logarithm of non-positive number is not allowed"</span>
+<span class="diff-unchanged">  </span>
+<span class="diff-unchanged">  </span>
+<span class="diff-unchanged">  def test_power_negative_exponent():</span>
+<span class="diff-unchanged">      assert power(2, -3) == 0.125</span>
+<span class="diff-unchanged">  </span>
+<span class="diff-unchanged">  </span>
+<span class="diff-unchanged">  def test_divide_by_zero():</span>
+<span class="diff-unchanged">      assert divide(10, 0) == "Error: Division by zero is not allowed"</span>
+<span class="diff-unchanged">  </span>
+<span class="diff-unchanged">  </span>
+<span class="diff-unchanged">  def test_log_non_positive():</span>
+<span class="diff-unchanged">      assert log(0) == "Error: Logarithm of non-positive number is not allowed"</span>
+<span class="diff-unchanged">      assert log(-1) == "Error: Logarithm of non-positive number is not allowed"</span>
+<span class="diff-unchanged">  </span>
+<span class="diff-unchanged">  </span>
+<span class="diff-unchanged">  def test_sqrt_negative():</span>
+<span class="diff-unchanged">      assert sqrt(-4) == "Error: Square root of negative number is not allowed"</span>
+<span class="diff-unchanged">  </span>
+<span class="diff-unchanged">  </span>
+<span class="diff-unchanged">  def test_power():</span>
+<span class="diff-unchanged">      assert power(2, 3) == 8</span>
+<span class="diff-unchanged">      assert power(5, 0) == 1</span>
+<span class="diff-unchanged">  </span>
+<span class="diff-unchanged">  </span>
+<span class="diff-unchanged">  def test_divide_by_zero():</span>
+<span class="diff-unchanged">      assert divide(10, 0) == "Error: Division by zero is not allowed"</span>
+<span class="diff-unchanged">  </span></code></pre>
+                    </details>
+                </td>
+                <td>
+                    <details>
+                        <summary>View More</summary>
+                        <div><strong>STDERR:</strong> <pre><code class="language-python"></code></pre></div>
+                        <div><strong>STDOUT:</strong> <pre><code class="language-python">============================= test session starts ==============================
+platform darwin -- Python 3.12.7, pytest-8.3.5, pluggy-1.5.0
+rootdir: /Users/taeilseok/qodo/calculator
+plugins: anyio-4.9.0, cov-6.1.1
+collected 11 items
+
+test_calc.py ...........                                                 [100%]
+
+================================ tests coverage ================================
+_______________ coverage: platform darwin, python 3.12.7-final-0 _______________
+
+Name           Stmts   Miss  Cover
+----------------------------------
+calc.py           88     65    26%
+test_calc.py      36      1    97%
+----------------------------------
+TOTAL            124     66    47%
+Coverage XML written to file coverage.xml
+============================== 11 passed in 0.05s ==============================
+</code></pre></div>
+                        <div><strong>Test Code:</strong> <pre><code class="language-python">def test_power_function():
+    assert power(2, 3) == 8
+</code></pre></div>
+                        <div><strong>Imports:</strong> <pre><code class="language-python">from calc import power
+</code></pre></div>
+                    </details>
+                </td>
+            </tr>
+            
+            <tr>
+                <td class="status-PASS">PASS</td>
+                <td></td>
+                <td>0</td>
+                <td>python</td>
+                <td>
+                    <details>
+                        <summary>View Full Code</summary>
+                        <pre><code><span class="diff-unchanged">  import pytest</span>
+<span class="diff-unchanged">  from calc import add, subtract</span>
+<span class="diff-unchanged">  from calc import multiply</span>
+<span class="diff-unchanged">  from calc import log</span>
+<span class="diff-unchanged">  from calc import sqrt</span>
+<span class="diff-unchanged">  from calc import power</span>
+<span class="diff-unchanged">  from calc import divide</span>
+<span class="diff-unchanged">  </span>
+<span class="diff-unchanged">  def test_add():</span>
+<span class="diff-unchanged">      assert add(2, 3) == 5</span>
+<span class="diff-unchanged">      assert add(-1, 1) == 0</span>
+<span class="diff-unchanged">  </span>
+<span class="diff-unchanged">  def test_subtract():</span>
+<span class="diff-unchanged">      assert subtract(5, 3) == 2</span>
+<span class="diff-unchanged">      assert subtract(3, 5) == -2</span>
+<span class="diff-added">+ </span>
+<span class="diff-added">+ def test_log_positive_number():</span>
+<span class="diff-added">+     assert log(1) == 0</span>
+<span class="diff-added">+ </span>
+<span class="diff-unchanged">  </span>
+<span class="diff-unchanged">  def test_power_function():</span>
+<span class="diff-unchanged">      assert power(2, 3) == 8</span>
+<span class="diff-unchanged">  </span>
+<span class="diff-unchanged">  </span>
+<span class="diff-unchanged">  def test_divide_non_zero():</span>
+<span class="diff-unchanged">      assert divide(10, 2) == 5</span>
+<span class="diff-unchanged">  </span>
+<span class="diff-unchanged">  </span>
+<span class="diff-unchanged">  def test_multiply_positive_numbers():</span>
+<span class="diff-unchanged">      assert multiply(3, 4) == 12</span>
+<span class="diff-unchanged">  </span>
+<span class="diff-unchanged">  </span>
+<span class="diff-unchanged">  def test_log_non_positive_number():</span>
+<span class="diff-unchanged">      assert log(0) == "Error: Logarithm of non-positive number is not allowed"</span>
+<span class="diff-unchanged">      assert log(-1) == "Error: Logarithm of non-positive number is not allowed"</span>
+<span class="diff-unchanged">  </span>
+<span class="diff-unchanged">  </span>
+<span class="diff-unchanged">  def test_power_negative_exponent():</span>
+<span class="diff-unchanged">      assert power(2, -3) == 0.125</span>
+<span class="diff-unchanged">  </span>
+<span class="diff-unchanged">  </span>
+<span class="diff-unchanged">  def test_divide_by_zero():</span>
+<span class="diff-unchanged">      assert divide(10, 0) == "Error: Division by zero is not allowed"</span>
+<span class="diff-unchanged">  </span>
+<span class="diff-unchanged">  </span>
+<span class="diff-unchanged">  def test_log_non_positive():</span>
+<span class="diff-unchanged">      assert log(0) == "Error: Logarithm of non-positive number is not allowed"</span>
+<span class="diff-unchanged">      assert log(-1) == "Error: Logarithm of non-positive number is not allowed"</span>
+<span class="diff-unchanged">  </span>
+<span class="diff-unchanged">  </span>
+<span class="diff-unchanged">  def test_sqrt_negative():</span>
+<span class="diff-unchanged">      assert sqrt(-4) == "Error: Square root of negative number is not allowed"</span>
+<span class="diff-unchanged">  </span>
+<span class="diff-unchanged">  </span>
+<span class="diff-unchanged">  def test_power():</span>
+<span class="diff-unchanged">      assert power(2, 3) == 8</span>
+<span class="diff-unchanged">      assert power(5, 0) == 1</span>
+<span class="diff-unchanged">  </span>
+<span class="diff-unchanged">  </span>
+<span class="diff-unchanged">  def test_divide_by_zero():</span>
+<span class="diff-unchanged">      assert divide(10, 0) == "Error: Division by zero is not allowed"</span>
+<span class="diff-unchanged">  </span></code></pre>
+                    </details>
+                </td>
+                <td>
+                    <details>
+                        <summary>View More</summary>
+                        <div><strong>STDERR:</strong> <pre><code class="language-python"></code></pre></div>
+                        <div><strong>STDOUT:</strong> <pre><code class="language-python">============================= test session starts ==============================
+platform darwin -- Python 3.12.7, pytest-8.3.5, pluggy-1.5.0
+rootdir: /Users/taeilseok/qodo/calculator
+plugins: anyio-4.9.0, cov-6.1.1
+collected 12 items
+
+test_calc.py ............                                                [100%]
+
+================================ tests coverage ================================
+_______________ coverage: platform darwin, python 3.12.7-final-0 _______________
+
+Name           Stmts   Miss  Cover
+----------------------------------
+calc.py           88     64    27%
+test_calc.py      38      1    97%
+----------------------------------
+TOTAL            126     65    48%
+Coverage XML written to file coverage.xml
+============================== 12 passed in 0.05s ==============================
+</code></pre></div>
+                        <div><strong>Test Code:</strong> <pre><code class="language-python">def test_log_positive_number():
+    assert log(1) == 0
+</code></pre></div>
+                        <div><strong>Imports:</strong> <pre><code class="language-python">from calc import log
+</code></pre></div>
+                    </details>
+                </td>
+            </tr>
+            
+            <tr>
+                <td class="status-PASS">PASS</td>
+                <td></td>
+                <td>0</td>
+                <td>python</td>
+                <td>
+                    <details>
+                        <summary>View Full Code</summary>
+                        <pre><code><span class="diff-unchanged">  import pytest</span>
+<span class="diff-unchanged">  from calc import add, subtract</span>
+<span class="diff-unchanged">  from calc import multiply</span>
+<span class="diff-unchanged">  from calc import log</span>
+<span class="diff-unchanged">  from calc import sqrt</span>
+<span class="diff-unchanged">  from calc import power</span>
+<span class="diff-unchanged">  from calc import divide</span>
+<span class="diff-unchanged">  </span>
+<span class="diff-unchanged">  def test_add():</span>
+<span class="diff-unchanged">      assert add(2, 3) == 5</span>
+<span class="diff-unchanged">      assert add(-1, 1) == 0</span>
+<span class="diff-unchanged">  </span>
+<span class="diff-unchanged">  def test_subtract():</span>
+<span class="diff-unchanged">      assert subtract(5, 3) == 2</span>
+<span class="diff-unchanged">      assert subtract(3, 5) == -2</span>
+<span class="diff-added">+ </span>
+<span class="diff-added">+ def test_multiply():</span>
+<span class="diff-added">+     assert multiply(3, 4) == 12</span>
+<span class="diff-added">+     assert multiply(-1, 5) == -5</span>
+<span class="diff-added">+     assert multiply(0, 10) == 0</span>
+<span class="diff-added">+     assert multiply(-3, -3) == 9</span>
+<span class="diff-added">+ </span>
+<span class="diff-unchanged">  </span>
+<span class="diff-unchanged">  def test_log_positive_number():</span>
+<span class="diff-unchanged">      assert log(1) == 0</span>
+<span class="diff-unchanged">  </span>
+<span class="diff-unchanged">  </span>
+<span class="diff-unchanged">  def test_power_function():</span>
+<span class="diff-unchanged">      assert power(2, 3) == 8</span>
+<span class="diff-unchanged">  </span>
+<span class="diff-unchanged">  </span>
+<span class="diff-unchanged">  def test_divide_non_zero():</span>
+<span class="diff-unchanged">      assert divide(10, 2) == 5</span>
+<span class="diff-unchanged">  </span>
+<span class="diff-unchanged">  </span>
+<span class="diff-unchanged">  def test_multiply_positive_numbers():</span>
+<span class="diff-unchanged">      assert multiply(3, 4) == 12</span>
+<span class="diff-unchanged">  </span>
+<span class="diff-unchanged">  </span>
+<span class="diff-unchanged">  def test_log_non_positive_number():</span>
+<span class="diff-unchanged">      assert log(0) == "Error: Logarithm of non-positive number is not allowed"</span>
+<span class="diff-unchanged">      assert log(-1) == "Error: Logarithm of non-positive number is not allowed"</span>
+<span class="diff-unchanged">  </span>
+<span class="diff-unchanged">  </span>
+<span class="diff-unchanged">  def test_power_negative_exponent():</span>
+<span class="diff-unchanged">      assert power(2, -3) == 0.125</span>
+<span class="diff-unchanged">  </span>
+<span class="diff-unchanged">  </span>
+<span class="diff-unchanged">  def test_divide_by_zero():</span>
+<span class="diff-unchanged">      assert divide(10, 0) == "Error: Division by zero is not allowed"</span>
+<span class="diff-unchanged">  </span>
+<span class="diff-unchanged">  </span>
+<span class="diff-unchanged">  def test_log_non_positive():</span>
+<span class="diff-unchanged">      assert log(0) == "Error: Logarithm of non-positive number is not allowed"</span>
+<span class="diff-unchanged">      assert log(-1) == "Error: Logarithm of non-positive number is not allowed"</span>
+<span class="diff-unchanged">  </span>
+<span class="diff-unchanged">  </span>
+<span class="diff-unchanged">  def test_sqrt_negative():</span>
+<span class="diff-unchanged">      assert sqrt(-4) == "Error: Square root of negative number is not allowed"</span>
+<span class="diff-unchanged">  </span>
+<span class="diff-unchanged">  </span>
+<span class="diff-unchanged">  def test_power():</span>
+<span class="diff-unchanged">      assert power(2, 3) == 8</span>
+<span class="diff-unchanged">      assert power(5, 0) == 1</span>
+<span class="diff-unchanged">  </span>
+<span class="diff-unchanged">  </span>
+<span class="diff-unchanged">  def test_divide_by_zero():</span>
+<span class="diff-unchanged">      assert divide(10, 0) == "Error: Division by zero is not allowed"</span>
+<span class="diff-unchanged">  </span></code></pre>
+                    </details>
+                </td>
+                <td>
+                    <details>
+                        <summary>View More</summary>
+                        <div><strong>STDERR:</strong> <pre><code class="language-python"></code></pre></div>
+                        <div><strong>STDOUT:</strong> <pre><code class="language-python">============================= test session starts ==============================
+platform darwin -- Python 3.12.7, pytest-8.3.5, pluggy-1.5.0
+rootdir: /Users/taeilseok/qodo/calculator
+plugins: anyio-4.9.0, cov-6.1.1
+collected 13 items
+
+test_calc.py .............                                               [100%]
+
+================================ tests coverage ================================
+_______________ coverage: platform darwin, python 3.12.7-final-0 _______________
+
+Name           Stmts   Miss  Cover
+----------------------------------
+calc.py           88     64    27%
+test_calc.py      43      1    98%
+----------------------------------
+TOTAL            131     65    50%
+Coverage XML written to file coverage.xml
+============================== 13 passed in 0.06s ==============================
+</code></pre></div>
+                        <div><strong>Test Code:</strong> <pre><code class="language-python">def test_multiply():
+    assert multiply(3, 4) == 12
+    assert multiply(-1, 5) == -5
+    assert multiply(0, 10) == 0
+    assert multiply(-3, -3) == 9
+</code></pre></div>
+                        <div><strong>Imports:</strong> <pre><code class="language-python">from calc import multiply
+</code></pre></div>
+                    </details>
+                </td>
+            </tr>
+            
+            <tr>
+                <td class="status-PASS">PASS</td>
+                <td></td>
+                <td>0</td>
+                <td>python</td>
+                <td>
+                    <details>
+                        <summary>View Full Code</summary>
+                        <pre><code><span class="diff-unchanged">  import pytest</span>
+<span class="diff-unchanged">  from calc import add, subtract</span>
+<span class="diff-unchanged">  from calc import multiply</span>
+<span class="diff-unchanged">  from calc import log</span>
+<span class="diff-unchanged">  from calc import sqrt</span>
+<span class="diff-unchanged">  from calc import power</span>
+<span class="diff-unchanged">  from calc import divide</span>
+<span class="diff-unchanged">  </span>
+<span class="diff-unchanged">  def test_add():</span>
+<span class="diff-unchanged">      assert add(2, 3) == 5</span>
+<span class="diff-unchanged">      assert add(-1, 1) == 0</span>
+<span class="diff-unchanged">  </span>
+<span class="diff-unchanged">  def test_subtract():</span>
+<span class="diff-unchanged">      assert subtract(5, 3) == 2</span>
+<span class="diff-unchanged">      assert subtract(3, 5) == -2</span>
+<span class="diff-added">+ </span>
+<span class="diff-added">+ def test_divide():</span>
+<span class="diff-added">+     assert divide(10, 2) == 5</span>
+<span class="diff-added">+     assert divide(5, 0) == "Error: Division by zero is not allowed"</span>
+<span class="diff-added">+     assert divide(-10, 2) == -5</span>
+<span class="diff-added">+     assert divide(0, 5) == 0</span>
+<span class="diff-added">+ </span>
+<span class="diff-unchanged">  </span>
+<span class="diff-unchanged">  def test_multiply():</span>
+<span class="diff-unchanged">      assert multiply(3, 4) == 12</span>
+<span class="diff-unchanged">      assert multiply(-1, 5) == -5</span>
+<span class="diff-unchanged">      assert multiply(0, 10) == 0</span>
+<span class="diff-unchanged">      assert multiply(-3, -3) == 9</span>
+<span class="diff-unchanged">  </span>
+<span class="diff-unchanged">  </span>
+<span class="diff-unchanged">  def test_log_positive_number():</span>
+<span class="diff-unchanged">      assert log(1) == 0</span>
+<span class="diff-unchanged">  </span>
+<span class="diff-unchanged">  </span>
+<span class="diff-unchanged">  def test_power_function():</span>
+<span class="diff-unchanged">      assert power(2, 3) == 8</span>
+<span class="diff-unchanged">  </span>
+<span class="diff-unchanged">  </span>
+<span class="diff-unchanged">  def test_divide_non_zero():</span>
+<span class="diff-unchanged">      assert divide(10, 2) == 5</span>
+<span class="diff-unchanged">  </span>
+<span class="diff-unchanged">  </span>
+<span class="diff-unchanged">  def test_multiply_positive_numbers():</span>
+<span class="diff-unchanged">      assert multiply(3, 4) == 12</span>
+<span class="diff-unchanged">  </span>
+<span class="diff-unchanged">  </span>
+<span class="diff-unchanged">  def test_log_non_positive_number():</span>
+<span class="diff-unchanged">      assert log(0) == "Error: Logarithm of non-positive number is not allowed"</span>
+<span class="diff-unchanged">      assert log(-1) == "Error: Logarithm of non-positive number is not allowed"</span>
+<span class="diff-unchanged">  </span>
+<span class="diff-unchanged">  </span>
+<span class="diff-unchanged">  def test_power_negative_exponent():</span>
+<span class="diff-unchanged">      assert power(2, -3) == 0.125</span>
+<span class="diff-unchanged">  </span>
+<span class="diff-unchanged">  </span>
+<span class="diff-unchanged">  def test_divide_by_zero():</span>
+<span class="diff-unchanged">      assert divide(10, 0) == "Error: Division by zero is not allowed"</span>
+<span class="diff-unchanged">  </span>
+<span class="diff-unchanged">  </span>
+<span class="diff-unchanged">  def test_log_non_positive():</span>
+<span class="diff-unchanged">      assert log(0) == "Error: Logarithm of non-positive number is not allowed"</span>
+<span class="diff-unchanged">      assert log(-1) == "Error: Logarithm of non-positive number is not allowed"</span>
+<span class="diff-unchanged">  </span>
+<span class="diff-unchanged">  </span>
+<span class="diff-unchanged">  def test_sqrt_negative():</span>
+<span class="diff-unchanged">      assert sqrt(-4) == "Error: Square root of negative number is not allowed"</span>
+<span class="diff-unchanged">  </span>
+<span class="diff-unchanged">  </span>
+<span class="diff-unchanged">  def test_power():</span>
+<span class="diff-unchanged">      assert power(2, 3) == 8</span>
+<span class="diff-unchanged">      assert power(5, 0) == 1</span>
+<span class="diff-unchanged">  </span>
+<span class="diff-unchanged">  </span>
+<span class="diff-unchanged">  def test_divide_by_zero():</span>
+<span class="diff-unchanged">      assert divide(10, 0) == "Error: Division by zero is not allowed"</span>
+<span class="diff-unchanged">  </span></code></pre>
+                    </details>
+                </td>
+                <td>
+                    <details>
+                        <summary>View More</summary>
+                        <div><strong>STDERR:</strong> <pre><code class="language-python"></code></pre></div>
+                        <div><strong>STDOUT:</strong> <pre><code class="language-python">============================= test session starts ==============================
+platform darwin -- Python 3.12.7, pytest-8.3.5, pluggy-1.5.0
+rootdir: /Users/taeilseok/qodo/calculator
+plugins: anyio-4.9.0, cov-6.1.1
+collected 14 items
+
+test_calc.py ..............                                              [100%]
+
+================================ tests coverage ================================
+_______________ coverage: platform darwin, python 3.12.7-final-0 _______________
+
+Name           Stmts   Miss  Cover
+----------------------------------
+calc.py           88     64    27%
+test_calc.py      48      1    98%
+----------------------------------
+TOTAL            136     65    52%
+Coverage XML written to file coverage.xml
+============================== 14 passed in 0.06s ==============================
+</code></pre></div>
+                        <div><strong>Test Code:</strong> <pre><code class="language-python">def test_divide():
+    assert divide(10, 2) == 5
+    assert divide(5, 0) == "Error: Division by zero is not allowed"
+    assert divide(-10, 2) == -5
+    assert divide(0, 5) == 0
+</code></pre></div>
+                        <div><strong>Imports:</strong> <pre><code class="language-python">from calc import divide
+</code></pre></div>
+                    </details>
+                </td>
+            </tr>
+            
+            <tr>
+                <td class="status-PASS">PASS</td>
+                <td></td>
+                <td>0</td>
+                <td>python</td>
+                <td>
+                    <details>
+                        <summary>View Full Code</summary>
+                        <pre><code><span class="diff-unchanged">  import pytest</span>
+<span class="diff-unchanged">  from calc import add, subtract</span>
+<span class="diff-unchanged">  from calc import multiply</span>
+<span class="diff-unchanged">  from calc import log</span>
+<span class="diff-unchanged">  from calc import sqrt</span>
+<span class="diff-unchanged">  from calc import power</span>
+<span class="diff-unchanged">  from calc import divide</span>
+<span class="diff-unchanged">  </span>
+<span class="diff-unchanged">  def test_add():</span>
+<span class="diff-unchanged">      assert add(2, 3) == 5</span>
+<span class="diff-unchanged">      assert add(-1, 1) == 0</span>
+<span class="diff-unchanged">  </span>
+<span class="diff-unchanged">  def test_subtract():</span>
+<span class="diff-unchanged">      assert subtract(5, 3) == 2</span>
+<span class="diff-unchanged">      assert subtract(3, 5) == -2</span>
+<span class="diff-added">+ </span>
+<span class="diff-added">+ def test_power():</span>
+<span class="diff-added">+     assert power(2, 3) == 8</span>
+<span class="diff-added">+     assert power(5, 0) == 1</span>
+<span class="diff-added">+     assert power(2, -2) == 0.25</span>
+<span class="diff-added">+     assert power(-2, 3) == -8</span>
+<span class="diff-added">+ </span>
+<span class="diff-unchanged">  </span>
+<span class="diff-unchanged">  def test_divide():</span>
+<span class="diff-unchanged">      assert divide(10, 2) == 5</span>
+<span class="diff-unchanged">      assert divide(5, 0) == "Error: Division by zero is not allowed"</span>
+<span class="diff-unchanged">      assert divide(-10, 2) == -5</span>
+<span class="diff-unchanged">      assert divide(0, 5) == 0</span>
+<span class="diff-unchanged">  </span>
+<span class="diff-unchanged">  </span>
+<span class="diff-unchanged">  def test_multiply():</span>
+<span class="diff-unchanged">      assert multiply(3, 4) == 12</span>
+<span class="diff-unchanged">      assert multiply(-1, 5) == -5</span>
+<span class="diff-unchanged">      assert multiply(0, 10) == 0</span>
+<span class="diff-unchanged">      assert multiply(-3, -3) == 9</span>
+<span class="diff-unchanged">  </span>
+<span class="diff-unchanged">  </span>
+<span class="diff-unchanged">  def test_log_positive_number():</span>
+<span class="diff-unchanged">      assert log(1) == 0</span>
+<span class="diff-unchanged">  </span>
+<span class="diff-unchanged">  </span>
+<span class="diff-unchanged">  def test_power_function():</span>
+<span class="diff-unchanged">      assert power(2, 3) == 8</span>
+<span class="diff-unchanged">  </span>
+<span class="diff-unchanged">  </span>
+<span class="diff-unchanged">  def test_divide_non_zero():</span>
+<span class="diff-unchanged">      assert divide(10, 2) == 5</span>
+<span class="diff-unchanged">  </span>
+<span class="diff-unchanged">  </span>
+<span class="diff-unchanged">  def test_multiply_positive_numbers():</span>
+<span class="diff-unchanged">      assert multiply(3, 4) == 12</span>
+<span class="diff-unchanged">  </span>
+<span class="diff-unchanged">  </span>
+<span class="diff-unchanged">  def test_log_non_positive_number():</span>
+<span class="diff-unchanged">      assert log(0) == "Error: Logarithm of non-positive number is not allowed"</span>
+<span class="diff-unchanged">      assert log(-1) == "Error: Logarithm of non-positive number is not allowed"</span>
+<span class="diff-unchanged">  </span>
+<span class="diff-unchanged">  </span>
+<span class="diff-unchanged">  def test_power_negative_exponent():</span>
+<span class="diff-unchanged">      assert power(2, -3) == 0.125</span>
+<span class="diff-unchanged">  </span>
+<span class="diff-unchanged">  </span>
+<span class="diff-unchanged">  def test_divide_by_zero():</span>
+<span class="diff-unchanged">      assert divide(10, 0) == "Error: Division by zero is not allowed"</span>
+<span class="diff-unchanged">  </span>
+<span class="diff-unchanged">  </span>
+<span class="diff-unchanged">  def test_log_non_positive():</span>
+<span class="diff-unchanged">      assert log(0) == "Error: Logarithm of non-positive number is not allowed"</span>
+<span class="diff-unchanged">      assert log(-1) == "Error: Logarithm of non-positive number is not allowed"</span>
+<span class="diff-unchanged">  </span>
+<span class="diff-unchanged">  </span>
+<span class="diff-unchanged">  def test_sqrt_negative():</span>
+<span class="diff-unchanged">      assert sqrt(-4) == "Error: Square root of negative number is not allowed"</span>
+<span class="diff-unchanged">  </span>
+<span class="diff-unchanged">  </span>
+<span class="diff-unchanged">  def test_power():</span>
+<span class="diff-unchanged">      assert power(2, 3) == 8</span>
+<span class="diff-unchanged">      assert power(5, 0) == 1</span>
+<span class="diff-unchanged">  </span>
+<span class="diff-unchanged">  </span>
+<span class="diff-unchanged">  def test_divide_by_zero():</span>
+<span class="diff-unchanged">      assert divide(10, 0) == "Error: Division by zero is not allowed"</span>
+<span class="diff-unchanged">  </span></code></pre>
+                    </details>
+                </td>
+                <td>
+                    <details>
+                        <summary>View More</summary>
+                        <div><strong>STDERR:</strong> <pre><code class="language-python"></code></pre></div>
+                        <div><strong>STDOUT:</strong> <pre><code class="language-python">============================= test session starts ==============================
+platform darwin -- Python 3.12.7, pytest-8.3.5, pluggy-1.5.0
+rootdir: /Users/taeilseok/qodo/calculator
+plugins: anyio-4.9.0, cov-6.1.1
+collected 14 items
+
+test_calc.py ..............                                              [100%]
+
+================================ tests coverage ================================
+_______________ coverage: platform darwin, python 3.12.7-final-0 _______________
+
+Name           Stmts   Miss  Cover
+----------------------------------
+calc.py           88     64    27%
+test_calc.py      53      5    91%
+----------------------------------
+TOTAL            141     69    51%
+Coverage XML written to file coverage.xml
+============================== 14 passed in 0.06s ==============================
+</code></pre></div>
+                        <div><strong>Test Code:</strong> <pre><code class="language-python">def test_power():
+    assert power(2, 3) == 8
+    assert power(5, 0) == 1
+    assert power(2, -2) == 0.25
+    assert power(-2, 3) == -8
+</code></pre></div>
+                        <div><strong>Imports:</strong> <pre><code class="language-python">from calc import power
+</code></pre></div>
+                    </details>
+                </td>
+            </tr>
+            
+            <tr>
+                <td class="status-PASS">PASS</td>
+                <td></td>
+                <td>0</td>
+                <td>python</td>
+                <td>
+                    <details>
+                        <summary>View Full Code</summary>
+                        <pre><code><span class="diff-unchanged">  import pytest</span>
+<span class="diff-unchanged">  from calc import add, subtract</span>
+<span class="diff-added">+ import math</span>
+<span class="diff-unchanged">  from calc import multiply</span>
+<span class="diff-unchanged">  from calc import log</span>
+<span class="diff-unchanged">  from calc import sqrt</span>
+<span class="diff-unchanged">  from calc import power</span>
+<span class="diff-unchanged">  from calc import divide</span>
+<span class="diff-unchanged">  </span>
+<span class="diff-unchanged">  def test_add():</span>
+<span class="diff-unchanged">      assert add(2, 3) == 5</span>
+<span class="diff-unchanged">      assert add(-1, 1) == 0</span>
+<span class="diff-unchanged">  </span>
+<span class="diff-unchanged">  def test_subtract():</span>
+<span class="diff-unchanged">      assert subtract(5, 3) == 2</span>
+<span class="diff-unchanged">      assert subtract(3, 5) == -2</span>
+<span class="diff-added">+ </span>
+<span class="diff-added">+ def test_log():</span>
+<span class="diff-added">+     assert log(1) == 0</span>
+<span class="diff-added">+     assert log(math.e) == 1</span>
+<span class="diff-added">+     assert log(0) == "Error: Logarithm of non-positive number is not allowed"</span>
+<span class="diff-added">+     assert log(-1) == "Error: Logarithm of non-positive number is not allowed"</span>
+<span class="diff-added">+ </span>
+<span class="diff-unchanged">  </span>
+<span class="diff-unchanged">  def test_power():</span>
+<span class="diff-unchanged">      assert power(2, 3) == 8</span>
+<span class="diff-unchanged">      assert power(5, 0) == 1</span>
+<span class="diff-unchanged">      assert power(2, -2) == 0.25</span>
+<span class="diff-unchanged">      assert power(-2, 3) == -8</span>
+<span class="diff-unchanged">  </span>
+<span class="diff-unchanged">  </span>
+<span class="diff-unchanged">  def test_divide():</span>
+<span class="diff-unchanged">      assert divide(10, 2) == 5</span>
+<span class="diff-unchanged">      assert divide(5, 0) == "Error: Division by zero is not allowed"</span>
+<span class="diff-unchanged">      assert divide(-10, 2) == -5</span>
+<span class="diff-unchanged">      assert divide(0, 5) == 0</span>
+<span class="diff-unchanged">  </span>
+<span class="diff-unchanged">  </span>
+<span class="diff-unchanged">  def test_multiply():</span>
+<span class="diff-unchanged">      assert multiply(3, 4) == 12</span>
+<span class="diff-unchanged">      assert multiply(-1, 5) == -5</span>
+<span class="diff-unchanged">      assert multiply(0, 10) == 0</span>
+<span class="diff-unchanged">      assert multiply(-3, -3) == 9</span>
+<span class="diff-unchanged">  </span>
+<span class="diff-unchanged">  </span>
+<span class="diff-unchanged">  def test_log_positive_number():</span>
+<span class="diff-unchanged">      assert log(1) == 0</span>
+<span class="diff-unchanged">  </span>
+<span class="diff-unchanged">  </span>
+<span class="diff-unchanged">  def test_power_function():</span>
+<span class="diff-unchanged">      assert power(2, 3) == 8</span>
+<span class="diff-unchanged">  </span>
+<span class="diff-unchanged">  </span>
+<span class="diff-unchanged">  def test_divide_non_zero():</span>
+<span class="diff-unchanged">      assert divide(10, 2) == 5</span>
+<span class="diff-unchanged">  </span>
+<span class="diff-unchanged">  </span>
+<span class="diff-unchanged">  def test_multiply_positive_numbers():</span>
+<span class="diff-unchanged">      assert multiply(3, 4) == 12</span>
+<span class="diff-unchanged">  </span>
+<span class="diff-unchanged">  </span>
+<span class="diff-unchanged">  def test_log_non_positive_number():</span>
+<span class="diff-unchanged">      assert log(0) == "Error: Logarithm of non-positive number is not allowed"</span>
+<span class="diff-unchanged">      assert log(-1) == "Error: Logarithm of non-positive number is not allowed"</span>
+<span class="diff-unchanged">  </span>
+<span class="diff-unchanged">  </span>
+<span class="diff-unchanged">  def test_power_negative_exponent():</span>
+<span class="diff-unchanged">      assert power(2, -3) == 0.125</span>
+<span class="diff-unchanged">  </span>
+<span class="diff-unchanged">  </span>
+<span class="diff-unchanged">  def test_divide_by_zero():</span>
+<span class="diff-unchanged">      assert divide(10, 0) == "Error: Division by zero is not allowed"</span>
+<span class="diff-unchanged">  </span>
+<span class="diff-unchanged">  </span>
+<span class="diff-unchanged">  def test_log_non_positive():</span>
+<span class="diff-unchanged">      assert log(0) == "Error: Logarithm of non-positive number is not allowed"</span>
+<span class="diff-unchanged">      assert log(-1) == "Error: Logarithm of non-positive number is not allowed"</span>
+<span class="diff-unchanged">  </span>
+<span class="diff-unchanged">  </span>
+<span class="diff-unchanged">  def test_sqrt_negative():</span>
+<span class="diff-unchanged">      assert sqrt(-4) == "Error: Square root of negative number is not allowed"</span>
+<span class="diff-unchanged">  </span>
+<span class="diff-unchanged">  </span>
+<span class="diff-unchanged">  def test_power():</span>
+<span class="diff-unchanged">      assert power(2, 3) == 8</span>
+<span class="diff-unchanged">      assert power(5, 0) == 1</span>
+<span class="diff-unchanged">  </span>
+<span class="diff-unchanged">  </span>
+<span class="diff-unchanged">  def test_divide_by_zero():</span>
+<span class="diff-unchanged">      assert divide(10, 0) == "Error: Division by zero is not allowed"</span>
+<span class="diff-unchanged">  </span></code></pre>
+                    </details>
+                </td>
+                <td>
+                    <details>
+                        <summary>View More</summary>
+                        <div><strong>STDERR:</strong> <pre><code class="language-python"></code></pre></div>
+                        <div><strong>STDOUT:</strong> <pre><code class="language-python">============================= test session starts ==============================
+platform darwin -- Python 3.12.7, pytest-8.3.5, pluggy-1.5.0
+rootdir: /Users/taeilseok/qodo/calculator
+plugins: anyio-4.9.0, cov-6.1.1
+collected 15 items
+
+test_calc.py ...............                                             [100%]
+
+================================ tests coverage ================================
+_______________ coverage: platform darwin, python 3.12.7-final-0 _______________
+
+Name           Stmts   Miss  Cover
+----------------------------------
+calc.py           88     64    27%
+test_calc.py      59      5    92%
+----------------------------------
+TOTAL            147     69    53%
+Coverage XML written to file coverage.xml
+============================== 15 passed in 0.07s ==============================
+</code></pre></div>
+                        <div><strong>Test Code:</strong> <pre><code class="language-python">def test_log():
+    assert log(1) == 0
+    assert log(math.e) == 1
+    assert log(0) == "Error: Logarithm of non-positive number is not allowed"
+    assert log(-1) == "Error: Logarithm of non-positive number is not allowed"
+</code></pre></div>
+                        <div><strong>Imports:</strong> <pre><code class="language-python">from calc import log
+import math
+</code></pre></div>
+                    </details>
+                </td>
+            </tr>
+            
+            <tr>
+                <td class="status-PASS">PASS</td>
+                <td></td>
+                <td>0</td>
+                <td>python</td>
+                <td>
+                    <details>
+                        <summary>View Full Code</summary>
+                        <pre><code><span class="diff-unchanged">  import pytest</span>
+<span class="diff-unchanged">  from calc import add, subtract</span>
+<span class="diff-unchanged">  import math</span>
+<span class="diff-unchanged">  from calc import multiply</span>
+<span class="diff-unchanged">  from calc import log</span>
+<span class="diff-unchanged">  from calc import sqrt</span>
+<span class="diff-unchanged">  from calc import power</span>
+<span class="diff-unchanged">  from calc import divide</span>
+<span class="diff-unchanged">  </span>
+<span class="diff-unchanged">  def test_add():</span>
+<span class="diff-unchanged">      assert add(2, 3) == 5</span>
+<span class="diff-unchanged">      assert add(-1, 1) == 0</span>
+<span class="diff-unchanged">  </span>
+<span class="diff-unchanged">  def test_subtract():</span>
+<span class="diff-unchanged">      assert subtract(5, 3) == 2</span>
+<span class="diff-unchanged">      assert subtract(3, 5) == -2</span>
+<span class="diff-added">+ </span>
+<span class="diff-added">+ def test_divide_by_zero():</span>
+<span class="diff-added">+     assert divide(10, 0) == "Error: Division by zero is not allowed"</span>
+<span class="diff-added">+ </span>
+<span class="diff-unchanged">  </span>
+<span class="diff-unchanged">  def test_log():</span>
+<span class="diff-unchanged">      assert log(1) == 0</span>
+<span class="diff-unchanged">      assert log(math.e) == 1</span>
+<span class="diff-unchanged">      assert log(0) == "Error: Logarithm of non-positive number is not allowed"</span>
+<span class="diff-unchanged">      assert log(-1) == "Error: Logarithm of non-positive number is not allowed"</span>
+<span class="diff-unchanged">  </span>
+<span class="diff-unchanged">  </span>
+<span class="diff-unchanged">  def test_power():</span>
+<span class="diff-unchanged">      assert power(2, 3) == 8</span>
+<span class="diff-unchanged">      assert power(5, 0) == 1</span>
+<span class="diff-unchanged">      assert power(2, -2) == 0.25</span>
+<span class="diff-unchanged">      assert power(-2, 3) == -8</span>
+<span class="diff-unchanged">  </span>
+<span class="diff-unchanged">  </span>
+<span class="diff-unchanged">  def test_divide():</span>
+<span class="diff-unchanged">      assert divide(10, 2) == 5</span>
+<span class="diff-unchanged">      assert divide(5, 0) == "Error: Division by zero is not allowed"</span>
+<span class="diff-unchanged">      assert divide(-10, 2) == -5</span>
+<span class="diff-unchanged">      assert divide(0, 5) == 0</span>
+<span class="diff-unchanged">  </span>
+<span class="diff-unchanged">  </span>
+<span class="diff-unchanged">  def test_multiply():</span>
+<span class="diff-unchanged">      assert multiply(3, 4) == 12</span>
+<span class="diff-unchanged">      assert multiply(-1, 5) == -5</span>
+<span class="diff-unchanged">      assert multiply(0, 10) == 0</span>
+<span class="diff-unchanged">      assert multiply(-3, -3) == 9</span>
+<span class="diff-unchanged">  </span>
+<span class="diff-unchanged">  </span>
+<span class="diff-unchanged">  def test_log_positive_number():</span>
+<span class="diff-unchanged">      assert log(1) == 0</span>
+<span class="diff-unchanged">  </span>
+<span class="diff-unchanged">  </span>
+<span class="diff-unchanged">  def test_power_function():</span>
+<span class="diff-unchanged">      assert power(2, 3) == 8</span>
+<span class="diff-unchanged">  </span>
+<span class="diff-unchanged">  </span>
+<span class="diff-unchanged">  def test_divide_non_zero():</span>
+<span class="diff-unchanged">      assert divide(10, 2) == 5</span>
+<span class="diff-unchanged">  </span>
+<span class="diff-unchanged">  </span>
+<span class="diff-unchanged">  def test_multiply_positive_numbers():</span>
+<span class="diff-unchanged">      assert multiply(3, 4) == 12</span>
+<span class="diff-unchanged">  </span>
+<span class="diff-unchanged">  </span>
+<span class="diff-unchanged">  def test_log_non_positive_number():</span>
+<span class="diff-unchanged">      assert log(0) == "Error: Logarithm of non-positive number is not allowed"</span>
+<span class="diff-unchanged">      assert log(-1) == "Error: Logarithm of non-positive number is not allowed"</span>
+<span class="diff-unchanged">  </span>
+<span class="diff-unchanged">  </span>
+<span class="diff-unchanged">  def test_power_negative_exponent():</span>
+<span class="diff-unchanged">      assert power(2, -3) == 0.125</span>
+<span class="diff-unchanged">  </span>
+<span class="diff-unchanged">  </span>
+<span class="diff-unchanged">  def test_divide_by_zero():</span>
+<span class="diff-unchanged">      assert divide(10, 0) == "Error: Division by zero is not allowed"</span>
+<span class="diff-unchanged">  </span>
+<span class="diff-unchanged">  </span>
+<span class="diff-unchanged">  def test_log_non_positive():</span>
+<span class="diff-unchanged">      assert log(0) == "Error: Logarithm of non-positive number is not allowed"</span>
+<span class="diff-unchanged">      assert log(-1) == "Error: Logarithm of non-positive number is not allowed"</span>
+<span class="diff-unchanged">  </span>
+<span class="diff-unchanged">  </span>
+<span class="diff-unchanged">  def test_sqrt_negative():</span>
+<span class="diff-unchanged">      assert sqrt(-4) == "Error: Square root of negative number is not allowed"</span>
+<span class="diff-unchanged">  </span>
+<span class="diff-unchanged">  </span>
+<span class="diff-unchanged">  def test_power():</span>
+<span class="diff-unchanged">      assert power(2, 3) == 8</span>
+<span class="diff-unchanged">      assert power(5, 0) == 1</span>
+<span class="diff-unchanged">  </span>
+<span class="diff-unchanged">  </span>
+<span class="diff-unchanged">  def test_divide_by_zero():</span>
+<span class="diff-unchanged">      assert divide(10, 0) == "Error: Division by zero is not allowed"</span>
+<span class="diff-unchanged">  </span></code></pre>
+                    </details>
+                </td>
+                <td>
+                    <details>
+                        <summary>View More</summary>
+                        <div><strong>STDERR:</strong> <pre><code class="language-python"></code></pre></div>
+                        <div><strong>STDOUT:</strong> <pre><code class="language-python">============================= test session starts ==============================
+platform darwin -- Python 3.12.7, pytest-8.3.5, pluggy-1.5.0
+rootdir: /Users/taeilseok/qodo/calculator
+plugins: anyio-4.9.0, cov-6.1.1
+collected 15 items
+
+test_calc.py ...............                                             [100%]
+
+================================ tests coverage ================================
+_______________ coverage: platform darwin, python 3.12.7-final-0 _______________
+
+Name           Stmts   Miss  Cover
+----------------------------------
+calc.py           88     64    27%
+test_calc.py      61      6    90%
+----------------------------------
+TOTAL            149     70    53%
+Coverage XML written to file coverage.xml
+============================== 15 passed in 0.06s ==============================
+</code></pre></div>
+                        <div><strong>Test Code:</strong> <pre><code class="language-python">def test_divide_by_zero():
+    assert divide(10, 0) == "Error: Division by zero is not allowed"
+</code></pre></div>
+                        <div><strong>Imports:</strong> <pre><code class="language-python">from calc import divide
+</code></pre></div>
+                    </details>
+                </td>
+            </tr>
+            
+            <tr>
+                <td class="status-PASS">PASS</td>
+                <td></td>
+                <td>0</td>
+                <td>python</td>
+                <td>
+                    <details>
+                        <summary>View Full Code</summary>
+                        <pre><code><span class="diff-unchanged">  import pytest</span>
+<span class="diff-unchanged">  from calc import add, subtract</span>
+<span class="diff-unchanged">  import math</span>
+<span class="diff-unchanged">  from calc import multiply</span>
+<span class="diff-unchanged">  from calc import log</span>
+<span class="diff-unchanged">  from calc import sqrt</span>
+<span class="diff-unchanged">  from calc import power</span>
+<span class="diff-unchanged">  from calc import divide</span>
+<span class="diff-unchanged">  </span>
+<span class="diff-unchanged">  def test_add():</span>
+<span class="diff-unchanged">      assert add(2, 3) == 5</span>
+<span class="diff-unchanged">      assert add(-1, 1) == 0</span>
+<span class="diff-unchanged">  </span>
+<span class="diff-unchanged">  def test_subtract():</span>
+<span class="diff-unchanged">      assert subtract(5, 3) == 2</span>
+<span class="diff-unchanged">      assert subtract(3, 5) == -2</span>
+<span class="diff-added">+ </span>
+<span class="diff-added">+ def test_power_zero_exponent():</span>
+<span class="diff-added">+     assert power(5, 0) == 1</span>
+<span class="diff-added">+ </span>
+<span class="diff-unchanged">  </span>
+<span class="diff-unchanged">  def test_divide_by_zero():</span>
+<span class="diff-unchanged">      assert divide(10, 0) == "Error: Division by zero is not allowed"</span>
+<span class="diff-unchanged">  </span>
+<span class="diff-unchanged">  </span>
+<span class="diff-unchanged">  def test_log():</span>
+<span class="diff-unchanged">      assert log(1) == 0</span>
+<span class="diff-unchanged">      assert log(math.e) == 1</span>
+<span class="diff-unchanged">      assert log(0) == "Error: Logarithm of non-positive number is not allowed"</span>
+<span class="diff-unchanged">      assert log(-1) == "Error: Logarithm of non-positive number is not allowed"</span>
+<span class="diff-unchanged">  </span>
+<span class="diff-unchanged">  </span>
+<span class="diff-unchanged">  def test_power():</span>
+<span class="diff-unchanged">      assert power(2, 3) == 8</span>
+<span class="diff-unchanged">      assert power(5, 0) == 1</span>
+<span class="diff-unchanged">      assert power(2, -2) == 0.25</span>
+<span class="diff-unchanged">      assert power(-2, 3) == -8</span>
+<span class="diff-unchanged">  </span>
+<span class="diff-unchanged">  </span>
+<span class="diff-unchanged">  def test_divide():</span>
+<span class="diff-unchanged">      assert divide(10, 2) == 5</span>
+<span class="diff-unchanged">      assert divide(5, 0) == "Error: Division by zero is not allowed"</span>
+<span class="diff-unchanged">      assert divide(-10, 2) == -5</span>
+<span class="diff-unchanged">      assert divide(0, 5) == 0</span>
+<span class="diff-unchanged">  </span>
+<span class="diff-unchanged">  </span>
+<span class="diff-unchanged">  def test_multiply():</span>
+<span class="diff-unchanged">      assert multiply(3, 4) == 12</span>
+<span class="diff-unchanged">      assert multiply(-1, 5) == -5</span>
+<span class="diff-unchanged">      assert multiply(0, 10) == 0</span>
+<span class="diff-unchanged">      assert multiply(-3, -3) == 9</span>
+<span class="diff-unchanged">  </span>
+<span class="diff-unchanged">  </span>
+<span class="diff-unchanged">  def test_log_positive_number():</span>
+<span class="diff-unchanged">      assert log(1) == 0</span>
+<span class="diff-unchanged">  </span>
+<span class="diff-unchanged">  </span>
+<span class="diff-unchanged">  def test_power_function():</span>
+<span class="diff-unchanged">      assert power(2, 3) == 8</span>
+<span class="diff-unchanged">  </span>
+<span class="diff-unchanged">  </span>
+<span class="diff-unchanged">  def test_divide_non_zero():</span>
+<span class="diff-unchanged">      assert divide(10, 2) == 5</span>
+<span class="diff-unchanged">  </span>
+<span class="diff-unchanged">  </span>
+<span class="diff-unchanged">  def test_multiply_positive_numbers():</span>
+<span class="diff-unchanged">      assert multiply(3, 4) == 12</span>
+<span class="diff-unchanged">  </span>
+<span class="diff-unchanged">  </span>
+<span class="diff-unchanged">  def test_log_non_positive_number():</span>
+<span class="diff-unchanged">      assert log(0) == "Error: Logarithm of non-positive number is not allowed"</span>
+<span class="diff-unchanged">      assert log(-1) == "Error: Logarithm of non-positive number is not allowed"</span>
+<span class="diff-unchanged">  </span>
+<span class="diff-unchanged">  </span>
+<span class="diff-unchanged">  def test_power_negative_exponent():</span>
+<span class="diff-unchanged">      assert power(2, -3) == 0.125</span>
+<span class="diff-unchanged">  </span>
+<span class="diff-unchanged">  </span>
+<span class="diff-unchanged">  def test_divide_by_zero():</span>
+<span class="diff-unchanged">      assert divide(10, 0) == "Error: Division by zero is not allowed"</span>
+<span class="diff-unchanged">  </span>
+<span class="diff-unchanged">  </span>
+<span class="diff-unchanged">  def test_log_non_positive():</span>
+<span class="diff-unchanged">      assert log(0) == "Error: Logarithm of non-positive number is not allowed"</span>
+<span class="diff-unchanged">      assert log(-1) == "Error: Logarithm of non-positive number is not allowed"</span>
+<span class="diff-unchanged">  </span>
+<span class="diff-unchanged">  </span>
+<span class="diff-unchanged">  def test_sqrt_negative():</span>
+<span class="diff-unchanged">      assert sqrt(-4) == "Error: Square root of negative number is not allowed"</span>
+<span class="diff-unchanged">  </span>
+<span class="diff-unchanged">  </span>
+<span class="diff-unchanged">  def test_power():</span>
+<span class="diff-unchanged">      assert power(2, 3) == 8</span>
+<span class="diff-unchanged">      assert power(5, 0) == 1</span>
+<span class="diff-unchanged">  </span>
+<span class="diff-unchanged">  </span>
+<span class="diff-unchanged">  def test_divide_by_zero():</span>
+<span class="diff-unchanged">      assert divide(10, 0) == "Error: Division by zero is not allowed"</span>
+<span class="diff-unchanged">  </span></code></pre>
+                    </details>
+                </td>
+                <td>
+                    <details>
+                        <summary>View More</summary>
+                        <div><strong>STDERR:</strong> <pre><code class="language-python"></code></pre></div>
+                        <div><strong>STDOUT:</strong> <pre><code class="language-python">============================= test session starts ==============================
+platform darwin -- Python 3.12.7, pytest-8.3.5, pluggy-1.5.0
+rootdir: /Users/taeilseok/qodo/calculator
+plugins: anyio-4.9.0, cov-6.1.1
+collected 16 items
+
+test_calc.py ................                                            [100%]
+
+================================ tests coverage ================================
+_______________ coverage: platform darwin, python 3.12.7-final-0 _______________
+
+Name           Stmts   Miss  Cover
+----------------------------------
+calc.py           88     64    27%
+test_calc.py      63      6    90%
+----------------------------------
+TOTAL            151     70    54%
+Coverage XML written to file coverage.xml
+============================== 16 passed in 0.06s ==============================
+</code></pre></div>
+                        <div><strong>Test Code:</strong> <pre><code class="language-python">def test_power_zero_exponent():
+    assert power(5, 0) == 1
+</code></pre></div>
+                        <div><strong>Imports:</strong> <pre><code class="language-python">from calc import power
+</code></pre></div>
+                    </details>
+                </td>
+            </tr>
+            
+            <tr>
+                <td class="status-PASS">PASS</td>
+                <td></td>
+                <td>0</td>
+                <td>python</td>
+                <td>
+                    <details>
+                        <summary>View Full Code</summary>
+                        <pre><code><span class="diff-unchanged">  import pytest</span>
+<span class="diff-unchanged">  from calc import add, subtract</span>
+<span class="diff-unchanged">  import math</span>
+<span class="diff-unchanged">  from calc import multiply</span>
+<span class="diff-unchanged">  from calc import log</span>
+<span class="diff-unchanged">  from calc import sqrt</span>
+<span class="diff-unchanged">  from calc import power</span>
+<span class="diff-unchanged">  from calc import divide</span>
+<span class="diff-unchanged">  </span>
+<span class="diff-unchanged">  def test_add():</span>
+<span class="diff-unchanged">      assert add(2, 3) == 5</span>
+<span class="diff-unchanged">      assert add(-1, 1) == 0</span>
+<span class="diff-unchanged">  </span>
+<span class="diff-unchanged">  def test_subtract():</span>
+<span class="diff-unchanged">      assert subtract(5, 3) == 2</span>
+<span class="diff-unchanged">      assert subtract(3, 5) == -2</span>
+<span class="diff-added">+ </span>
+<span class="diff-added">+ def test_log_non_positive_number():</span>
+<span class="diff-added">+     assert log(0) == "Error: Logarithm of non-positive number is not allowed"</span>
+<span class="diff-added">+     assert log(-1) == "Error: Logarithm of non-positive number is not allowed"</span>
+<span class="diff-added">+ </span>
+<span class="diff-unchanged">  </span>
+<span class="diff-unchanged">  def test_power_zero_exponent():</span>
+<span class="diff-unchanged">      assert power(5, 0) == 1</span>
+<span class="diff-unchanged">  </span>
+<span class="diff-unchanged">  </span>
+<span class="diff-unchanged">  def test_divide_by_zero():</span>
+<span class="diff-unchanged">      assert divide(10, 0) == "Error: Division by zero is not allowed"</span>
+<span class="diff-unchanged">  </span>
+<span class="diff-unchanged">  </span>
+<span class="diff-unchanged">  def test_log():</span>
+<span class="diff-unchanged">      assert log(1) == 0</span>
+<span class="diff-unchanged">      assert log(math.e) == 1</span>
+<span class="diff-unchanged">      assert log(0) == "Error: Logarithm of non-positive number is not allowed"</span>
+<span class="diff-unchanged">      assert log(-1) == "Error: Logarithm of non-positive number is not allowed"</span>
+<span class="diff-unchanged">  </span>
+<span class="diff-unchanged">  </span>
+<span class="diff-unchanged">  def test_power():</span>
+<span class="diff-unchanged">      assert power(2, 3) == 8</span>
+<span class="diff-unchanged">      assert power(5, 0) == 1</span>
+<span class="diff-unchanged">      assert power(2, -2) == 0.25</span>
+<span class="diff-unchanged">      assert power(-2, 3) == -8</span>
+<span class="diff-unchanged">  </span>
+<span class="diff-unchanged">  </span>
+<span class="diff-unchanged">  def test_divide():</span>
+<span class="diff-unchanged">      assert divide(10, 2) == 5</span>
+<span class="diff-unchanged">      assert divide(5, 0) == "Error: Division by zero is not allowed"</span>
+<span class="diff-unchanged">      assert divide(-10, 2) == -5</span>
+<span class="diff-unchanged">      assert divide(0, 5) == 0</span>
+<span class="diff-unchanged">  </span>
+<span class="diff-unchanged">  </span>
+<span class="diff-unchanged">  def test_multiply():</span>
+<span class="diff-unchanged">      assert multiply(3, 4) == 12</span>
+<span class="diff-unchanged">      assert multiply(-1, 5) == -5</span>
+<span class="diff-unchanged">      assert multiply(0, 10) == 0</span>
+<span class="diff-unchanged">      assert multiply(-3, -3) == 9</span>
+<span class="diff-unchanged">  </span>
+<span class="diff-unchanged">  </span>
+<span class="diff-unchanged">  def test_log_positive_number():</span>
+<span class="diff-unchanged">      assert log(1) == 0</span>
+<span class="diff-unchanged">  </span>
+<span class="diff-unchanged">  </span>
+<span class="diff-unchanged">  def test_power_function():</span>
+<span class="diff-unchanged">      assert power(2, 3) == 8</span>
+<span class="diff-unchanged">  </span>
+<span class="diff-unchanged">  </span>
+<span class="diff-unchanged">  def test_divide_non_zero():</span>
+<span class="diff-unchanged">      assert divide(10, 2) == 5</span>
+<span class="diff-unchanged">  </span>
+<span class="diff-unchanged">  </span>
+<span class="diff-unchanged">  def test_multiply_positive_numbers():</span>
+<span class="diff-unchanged">      assert multiply(3, 4) == 12</span>
+<span class="diff-unchanged">  </span>
+<span class="diff-unchanged">  </span>
+<span class="diff-unchanged">  def test_log_non_positive_number():</span>
+<span class="diff-unchanged">      assert log(0) == "Error: Logarithm of non-positive number is not allowed"</span>
+<span class="diff-unchanged">      assert log(-1) == "Error: Logarithm of non-positive number is not allowed"</span>
+<span class="diff-unchanged">  </span>
+<span class="diff-unchanged">  </span>
+<span class="diff-unchanged">  def test_power_negative_exponent():</span>
+<span class="diff-unchanged">      assert power(2, -3) == 0.125</span>
+<span class="diff-unchanged">  </span>
+<span class="diff-unchanged">  </span>
+<span class="diff-unchanged">  def test_divide_by_zero():</span>
+<span class="diff-unchanged">      assert divide(10, 0) == "Error: Division by zero is not allowed"</span>
+<span class="diff-unchanged">  </span>
+<span class="diff-unchanged">  </span>
+<span class="diff-unchanged">  def test_log_non_positive():</span>
+<span class="diff-unchanged">      assert log(0) == "Error: Logarithm of non-positive number is not allowed"</span>
+<span class="diff-unchanged">      assert log(-1) == "Error: Logarithm of non-positive number is not allowed"</span>
+<span class="diff-unchanged">  </span>
+<span class="diff-unchanged">  </span>
+<span class="diff-unchanged">  def test_sqrt_negative():</span>
+<span class="diff-unchanged">      assert sqrt(-4) == "Error: Square root of negative number is not allowed"</span>
+<span class="diff-unchanged">  </span>
+<span class="diff-unchanged">  </span>
+<span class="diff-unchanged">  def test_power():</span>
+<span class="diff-unchanged">      assert power(2, 3) == 8</span>
+<span class="diff-unchanged">      assert power(5, 0) == 1</span>
+<span class="diff-unchanged">  </span>
+<span class="diff-unchanged">  </span>
+<span class="diff-unchanged">  def test_divide_by_zero():</span>
+<span class="diff-unchanged">      assert divide(10, 0) == "Error: Division by zero is not allowed"</span>
+<span class="diff-unchanged">  </span></code></pre>
+                    </details>
+                </td>
+                <td>
+                    <details>
+                        <summary>View More</summary>
+                        <div><strong>STDERR:</strong> <pre><code class="language-python"></code></pre></div>
+                        <div><strong>STDOUT:</strong> <pre><code class="language-python">============================= test session starts ==============================
+platform darwin -- Python 3.12.7, pytest-8.3.5, pluggy-1.5.0
+rootdir: /Users/taeilseok/qodo/calculator
+plugins: anyio-4.9.0, cov-6.1.1
+collected 16 items
+
+test_calc.py ................                                            [100%]
+
+================================ tests coverage ================================
+_______________ coverage: platform darwin, python 3.12.7-final-0 _______________
+
+Name           Stmts   Miss  Cover
+----------------------------------
+calc.py           88     64    27%
+test_calc.py      66      8    88%
+----------------------------------
+TOTAL            154     72    53%
+Coverage XML written to file coverage.xml
+============================== 16 passed in 0.07s ==============================
+</code></pre></div>
+                        <div><strong>Test Code:</strong> <pre><code class="language-python">def test_log_non_positive_number():
+    assert log(0) == "Error: Logarithm of non-positive number is not allowed"
+    assert log(-1) == "Error: Logarithm of non-positive number is not allowed"
+</code></pre></div>
+                        <div><strong>Imports:</strong> <pre><code class="language-python">from calc import log
+</code></pre></div>
+                    </details>
+                </td>
+            </tr>
+            
+            <tr>
+                <td class="status-PASS">PASS</td>
+                <td></td>
+                <td>0</td>
+                <td>python</td>
+                <td>
+                    <details>
+                        <summary>View Full Code</summary>
+                        <pre><code><span class="diff-unchanged">  import pytest</span>
+<span class="diff-unchanged">  from calc import add, subtract</span>
+<span class="diff-added">+ from calc import tan</span>
+<span class="diff-unchanged">  import math</span>
+<span class="diff-unchanged">  from calc import multiply</span>
+<span class="diff-unchanged">  from calc import log</span>
+<span class="diff-unchanged">  from calc import sqrt</span>
+<span class="diff-unchanged">  from calc import power</span>
+<span class="diff-unchanged">  from calc import divide</span>
+<span class="diff-unchanged">  </span>
+<span class="diff-unchanged">  def test_add():</span>
+<span class="diff-unchanged">      assert add(2, 3) == 5</span>
+<span class="diff-unchanged">      assert add(-1, 1) == 0</span>
+<span class="diff-unchanged">  </span>
+<span class="diff-unchanged">  def test_subtract():</span>
+<span class="diff-unchanged">      assert subtract(5, 3) == 2</span>
+<span class="diff-unchanged">      assert subtract(3, 5) == -2</span>
+<span class="diff-added">+ </span>
+<span class="diff-added">+ def test_tan_function():</span>
+<span class="diff-added">+     assert tan(0) == 0</span>
+<span class="diff-added">+     assert tan(math.pi / 4) == pytest.approx(1, 0.0001)</span>
+<span class="diff-added">+ </span>
+<span class="diff-unchanged">  </span>
+<span class="diff-unchanged">  def test_log_non_positive_number():</span>
+<span class="diff-unchanged">      assert log(0) == "Error: Logarithm of non-positive number is not allowed"</span>
+<span class="diff-unchanged">      assert log(-1) == "Error: Logarithm of non-positive number is not allowed"</span>
+<span class="diff-unchanged">  </span>
+<span class="diff-unchanged">  </span>
+<span class="diff-unchanged">  def test_power_zero_exponent():</span>
+<span class="diff-unchanged">      assert power(5, 0) == 1</span>
+<span class="diff-unchanged">  </span>
+<span class="diff-unchanged">  </span>
+<span class="diff-unchanged">  def test_divide_by_zero():</span>
+<span class="diff-unchanged">      assert divide(10, 0) == "Error: Division by zero is not allowed"</span>
+<span class="diff-unchanged">  </span>
+<span class="diff-unchanged">  </span>
+<span class="diff-unchanged">  def test_log():</span>
+<span class="diff-unchanged">      assert log(1) == 0</span>
+<span class="diff-unchanged">      assert log(math.e) == 1</span>
+<span class="diff-unchanged">      assert log(0) == "Error: Logarithm of non-positive number is not allowed"</span>
+<span class="diff-unchanged">      assert log(-1) == "Error: Logarithm of non-positive number is not allowed"</span>
+<span class="diff-unchanged">  </span>
+<span class="diff-unchanged">  </span>
+<span class="diff-unchanged">  def test_power():</span>
+<span class="diff-unchanged">      assert power(2, 3) == 8</span>
+<span class="diff-unchanged">      assert power(5, 0) == 1</span>
+<span class="diff-unchanged">      assert power(2, -2) == 0.25</span>
+<span class="diff-unchanged">      assert power(-2, 3) == -8</span>
+<span class="diff-unchanged">  </span>
+<span class="diff-unchanged">  </span>
+<span class="diff-unchanged">  def test_divide():</span>
+<span class="diff-unchanged">      assert divide(10, 2) == 5</span>
+<span class="diff-unchanged">      assert divide(5, 0) == "Error: Division by zero is not allowed"</span>
+<span class="diff-unchanged">      assert divide(-10, 2) == -5</span>
+<span class="diff-unchanged">      assert divide(0, 5) == 0</span>
+<span class="diff-unchanged">  </span>
+<span class="diff-unchanged">  </span>
+<span class="diff-unchanged">  def test_multiply():</span>
+<span class="diff-unchanged">      assert multiply(3, 4) == 12</span>
+<span class="diff-unchanged">      assert multiply(-1, 5) == -5</span>
+<span class="diff-unchanged">      assert multiply(0, 10) == 0</span>
+<span class="diff-unchanged">      assert multiply(-3, -3) == 9</span>
+<span class="diff-unchanged">  </span>
+<span class="diff-unchanged">  </span>
+<span class="diff-unchanged">  def test_log_positive_number():</span>
+<span class="diff-unchanged">      assert log(1) == 0</span>
+<span class="diff-unchanged">  </span>
+<span class="diff-unchanged">  </span>
+<span class="diff-unchanged">  def test_power_function():</span>
+<span class="diff-unchanged">      assert power(2, 3) == 8</span>
+<span class="diff-unchanged">  </span>
+<span class="diff-unchanged">  </span>
+<span class="diff-unchanged">  def test_divide_non_zero():</span>
+<span class="diff-unchanged">      assert divide(10, 2) == 5</span>
+<span class="diff-unchanged">  </span>
+<span class="diff-unchanged">  </span>
+<span class="diff-unchanged">  def test_multiply_positive_numbers():</span>
+<span class="diff-unchanged">      assert multiply(3, 4) == 12</span>
+<span class="diff-unchanged">  </span>
+<span class="diff-unchanged">  </span>
+<span class="diff-unchanged">  def test_log_non_positive_number():</span>
+<span class="diff-unchanged">      assert log(0) == "Error: Logarithm of non-positive number is not allowed"</span>
+<span class="diff-unchanged">      assert log(-1) == "Error: Logarithm of non-positive number is not allowed"</span>
+<span class="diff-unchanged">  </span>
+<span class="diff-unchanged">  </span>
+<span class="diff-unchanged">  def test_power_negative_exponent():</span>
+<span class="diff-unchanged">      assert power(2, -3) == 0.125</span>
+<span class="diff-unchanged">  </span>
+<span class="diff-unchanged">  </span>
+<span class="diff-unchanged">  def test_divide_by_zero():</span>
+<span class="diff-unchanged">      assert divide(10, 0) == "Error: Division by zero is not allowed"</span>
+<span class="diff-unchanged">  </span>
+<span class="diff-unchanged">  </span>
+<span class="diff-unchanged">  def test_log_non_positive():</span>
+<span class="diff-unchanged">      assert log(0) == "Error: Logarithm of non-positive number is not allowed"</span>
+<span class="diff-unchanged">      assert log(-1) == "Error: Logarithm of non-positive number is not allowed"</span>
+<span class="diff-unchanged">  </span>
+<span class="diff-unchanged">  </span>
+<span class="diff-unchanged">  def test_sqrt_negative():</span>
+<span class="diff-unchanged">      assert sqrt(-4) == "Error: Square root of negative number is not allowed"</span>
+<span class="diff-unchanged">  </span>
+<span class="diff-unchanged">  </span>
+<span class="diff-unchanged">  def test_power():</span>
+<span class="diff-unchanged">      assert power(2, 3) == 8</span>
+<span class="diff-unchanged">      assert power(5, 0) == 1</span>
+<span class="diff-unchanged">  </span>
+<span class="diff-unchanged">  </span>
+<span class="diff-unchanged">  def test_divide_by_zero():</span>
+<span class="diff-unchanged">      assert divide(10, 0) == "Error: Division by zero is not allowed"</span>
+<span class="diff-unchanged">  </span></code></pre>
+                    </details>
+                </td>
+                <td>
+                    <details>
+                        <summary>View More</summary>
+                        <div><strong>STDERR:</strong> <pre><code class="language-python"></code></pre></div>
+                        <div><strong>STDOUT:</strong> <pre><code class="language-python">============================= test session starts ==============================
+platform darwin -- Python 3.12.7, pytest-8.3.5, pluggy-1.5.0
+rootdir: /Users/taeilseok/qodo/calculator
+plugins: anyio-4.9.0, cov-6.1.1
+collected 17 items
+
+test_calc.py .................                                           [100%]
+
+================================ tests coverage ================================
+_______________ coverage: platform darwin, python 3.12.7-final-0 _______________
+
+Name           Stmts   Miss  Cover
+----------------------------------
+calc.py           88     63    28%
+test_calc.py      70      8    89%
+----------------------------------
+TOTAL            158     71    55%
+Coverage XML written to file coverage.xml
+============================== 17 passed in 0.07s ==============================
+</code></pre></div>
+                        <div><strong>Test Code:</strong> <pre><code class="language-python">def test_tan_function():
+    assert tan(0) == 0
+    assert tan(math.pi / 4) == pytest.approx(1, 0.0001)
+</code></pre></div>
+                        <div><strong>Imports:</strong> <pre><code class="language-python">from calc import tan
+import math
+</code></pre></div>
+                    </details>
+                </td>
+            </tr>
+            
+        </table>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.23.0/prism.min.js"></script>
+    </body>
+    </html>
+    

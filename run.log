@@ -1,0 +1,56 @@
+2025-05-12 11:28:47,525 - cover_agent.UnitTestValidator - INFO - Running build/test command to generate coverage report: "pytest2025-05-12 11:28:47,818 - cover_agent.CoverAgent - INFO - Current Coverage: 19.78%
+2025-05-12 11:28:47,818 - cover_agent.CoverAgent - I2025-05-12 11:28:55,216 - cov2025-05-12 11:28:56,327 - cover_agent.CoverAgent - INFO - Current Coverage: 32.98%
+2025-05-12 11:28:56,327 - cover_agent.CoverAgent - INFO - Desired Coverage: 100%
+2025-05-12 11:29:07,209 - cover_agent.CoverAgent - INFO - Current Coverage: 37.5%
+2025-05-12 11:29:07,209 - cover_agent.CoverAgent - INFO - Desired Coverage: 100%
+2025-05-12 11:29:14,772 - cover_agent.CoverAgent - INFO - Current Coverage: 45.92%
+2025-05-12 11:29:14,772 - cover_agent.CoverAgent - INFO - Desired Coverage: 100%
+2025-05-12 11:29:25,709 - cover_agent.CoverAgent - INFO - Current Coverage: 62.24%
+2025-05-12 11:29:25,709 - cover_agent.CoverAgent - INFO - Desired Coverage: 100%
+2025-05-12 11:29:34,415 - cover_agent.CoverAgent - INFO - Reached maximum iteration limit without achieving desired coverage. Current Coverage: 68.57%
+2025-05-12 11:29:34,415 - cover_agent.CoverAgent - INFO - Total number of input tokens used for LLM model gpt-4o: 12653
+2025-05-12 11:29:34,415 - cover_agent.CoverAgent - INFO - Total number of output tokens used for LLM model gpt-4o: 2336
+results from LLM model...
+ncreased. Current coverage: 32.98%
+2025-05-12 11:28:56,113 - cover_agent.UnitTestValidator - INFO - Running build/test command to generate coverage report: "pytest --cov=. --cov-report=xml --cov-report=term"
+2025-05-12 11:28:56,327 - cover_agent.UnitTestValidator - INFO - Initial coverage: 32.98%
+2025-05-12 11:29:06,070 - cover_agent.UnitTestValidator - INFO - Running test with the following command: "pytest --cov=. --cov-report=xml --cov-report=term"
+2025-05-12 11:29:06,307 - cover_agent.UnitTestValidator - INFO - Test passed and coverage increased. Current coverage: 34.38%
+2025-05-12 11:29:06,308 - cover_agent.UnitTestValidator - INFO - Running test with the following command: "pytest --cov=. --cov-report=xml --cov-report=term"
+2025-05-12 11:29:06,529 - cover_agent.UnitTestValidator - INFO - Test passed and coverage increased. Current coverage: 35.71%
+2025-05-12 11:29:06,529 - cover_agent.UnitTestValidator - INFO - Running test with the following command: "pytest --cov=. --cov-report=xml --cov-report=term"
+2025-05-12 11:29:06,757 - cover_agent.UnitTestValidator - INFO - Test did not increase coverage. Rolling back.
+2025-05-12 11:29:06,757 - cover_agent.UnitTestValidator - INFO - Running test with the following command: "pytest --cov=. --cov-report=xml --cov-report=term"
+2025-05-12 11:29:06,989 - cover_agent.UnitTestValidator - INFO - Test passed and coverage increased. Current coverage: 37.5%
+2025-05-12 11:29:06,994 - cover_agent.UnitTestValidator - INFO - Running build/test command to generate coverage report: "pytest --cov=. --cov-report=xml --cov-report=term"
+2025-05-12 11:29:07,209 - cover_agent.UnitTestValidator - INFO - Initial coverage: 37.5%
+2025-05-12 11:29:13,609 - cover_agent.UnitTestValidator - INFO - Running test with the following command: "pytest --cov=. --cov-report=xml --cov-report=term"
+2025-05-12 11:29:13,856 - cover_agent.UnitTestValidator - INFO - Test passed and coverage increased. Current coverage: 38.54%
+2025-05-12 11:29:13,857 - cover_agent.UnitTestValidator - INFO - Running test with the following command: "pytest --cov=. --cov-report=xml --cov-report=term"
+2025-05-12 11:29:14,089 - cover_agent.UnitTestValidator - INFO - Test passed and coverage increased. Current coverage: 43.3%
+2025-05-12 11:29:14,090 - cover_agent.UnitTestValidator - INFO - Running test with the following command: "pytest --cov=. --cov-report=xml --cov-report=term"
+2025-05-12 11:29:14,320 - cover_agent.UnitTestValidator - INFO - Test passed and coverage increased. Current coverage: 44.9%
+2025-05-12 11:29:14,320 - cover_agent.UnitTestValidator - INFO - Running test with the following command: "pytest --cov=. --cov-report=xml --cov-report=term"
+2025-05-12 11:29:14,550 - cover_agent.UnitTestValidator - INFO - Test passed and coverage increased. Current coverage: 45.92%
+2025-05-12 11:29:14,555 - cover_agent.UnitTestValidator - INFO - Running build/test command to generate coverage report: "pytest --cov=. --cov-report=xml --cov-report=term"
+2025-05-12 11:29:14,771 - cover_agent.UnitTestValidator - INFO - Initial coverage: 45.92%
+2025-05-12 11:29:24,332 - cover_agent.UnitTestValidator - INFO - Running test with the following command: "pytest --cov=. --cov-report=xml --cov-report=term"
+2025-05-12 11:29:24,676 - cover_agent.UnitTestValidator - INFO - Test passed and coverage increased. Current coverage: 50.52%
+2025-05-12 11:29:24,676 - cover_agent.UnitTestValidator - INFO - Running test with the following command: "pytest --cov=. --cov-report=xml --cov-report=term"
+2025-05-12 11:29:24,930 - cover_agent.UnitTestValidator - INFO - Test passed and coverage increased. Current coverage: 54.0%
+2025-05-12 11:29:24,931 - cover_agent.UnitTestValidator - INFO - Running test with the following command: "pytest --cov=. --cov-report=xml --cov-report=term"
+2025-05-12 11:29:25,184 - cover_agent.UnitTestValidator - INFO - Test passed and coverage increased. Current coverage: 55.88%
+2025-05-12 11:29:25,184 - cover_agent.UnitTestValidator - INFO - Running test with the following command: "pytest --cov=. --cov-report=xml --cov-report=term"
+2025-05-12 11:29:25,460 - cover_agent.UnitTestValidator - INFO - Test passed and coverage increased. Current coverage: 62.24%
+2025-05-12 11:29:25,465 - cover_agent.UnitTestValidator - INFO - Running build/test command to generate coverage report: "pytest --cov=. --cov-report=xml --cov-report=term"
+2025-05-12 11:29:25,709 - cover_agent.UnitTestValidator - INFO - Initial coverage: 62.24%
+2025-05-12 11:29:33,143 - cover_agent.UnitTestValidator - INFO - Running test with the following command: "pytest --cov=. --cov-report=xml --cov-report=term"
+2025-05-12 11:29:33,401 - cover_agent.UnitTestValidator - INFO - Test passed and coverage increased. Current coverage: 65.31%
+2025-05-12 11:29:33,401 - cover_agent.UnitTestValidator - INFO - Running test with the following command: "pytest --cov=. --cov-report=xml --cov-report=term"
+2025-05-12 11:29:33,648 - cover_agent.UnitTestValidator - INFO - Test passed and coverage increased. Current coverage: 65.98%
+2025-05-12 11:29:33,648 - cover_agent.UnitTestValidator - INFO - Running test with the following command: "pytest --cov=. --cov-report=xml --cov-report=term"
+2025-05-12 11:29:33,897 - cover_agent.UnitTestValidator - INFO - Test passed and coverage increased. Current coverage: 68.0%
+2025-05-12 11:29:33,898 - cover_agent.UnitTestValidator - INFO - Running test with the following command: "pytest --cov=. --cov-report=xml --cov-report=term"
+2025-05-12 11:29:34,161 - cover_agent.UnitTestValidator - INFO - Test passed and coverage increased. Current coverage: 68.57%
+2025-05-12 11:29:34,165 - cover_agent.UnitTestValidator - INFO - Running build/test command to generate coverage report: "pytest --cov=. --cov-report=xml --cov-report=term"
+2025-05-12 11:29:34,415 - cover_agent.UnitTestValidator - INFO - Initial coverage: 68.57%
