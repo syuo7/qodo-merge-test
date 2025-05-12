@@ -1,0 +1,13 @@
+[pr_agent]
+git_provider="github"
+openai_key_env_var="OPENAI_KEY"
+
+[pr_reviewer]
+enable_auto_approval=false
+enable_review_effort_estimation=true
+extra_instructions="Focus on Python best practices and pytest testing standards."
+
+[pr_test]
+num_tests=3
+testing_framework="pytest"
+avoid_mocks=true
