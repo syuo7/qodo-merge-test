@@ -39,6 +39,11 @@ def cos(x):
 def tan(x):
     return math.tan(x)
 
+def factorial(n):
+    if not isinstance(n, int) or n < 0:
+        return "Error: Factorial is only defined for non-negative integers"
+    return math.factorial(n)
+
 if __name__ == "__main__":
     print("Advanced Calculator")
     print("1. Basic Operations")
